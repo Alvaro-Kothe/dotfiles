@@ -80,7 +80,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     git
     git-auto-fetch
-    poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,7 +113,6 @@ alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias r="radian"
 alias vim="nvim"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
