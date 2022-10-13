@@ -1,0 +1,15 @@
+com.bitwarden.desktop
+com.brave.Browser
+com.discordapp.Discord
+com.dropbox.Client
+com.getpostman.Postman
+com.github.johnfactotum.Foliate
+com.github.tchx84.Flatseal
+com.github.xournalpp.xournalpp
+com.mattjakeman.ExtensionManager
+com.spotify.Client
+com.usebottles.bottles
+md.obsidian.Obsidian
+me.hyliu.fluentreader
+org.mozilla.Thunderbird
+org.zotero.Zotero
