@@ -66,14 +66,12 @@
   "[rmd]": {},
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.suggestSelection": "first",
-  "terminal.integrated.fontFamily": "CaskaydiaCove NF",
   "settingsSync.ignoredSettings": ["terminal.integrated.fontFamily"],
   "vim.neovimUseConfigFile": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
   "workbench.colorTheme": "Visual Studio Dark",
   "r.rterm.linux": "/home/alvaro/.local/bin/radian",
   "git.confirmSync": false,
-  "latex-workshop.linting.chktex.enabled": true,
   "ltex.language": "pt-BR",
   "git.enableSmartCommit": true,
   "ltex.bibtex.fields": {
@@ -135,5 +133,6 @@
     }
   ],
   "code-runner.enableAppInsights": false,
-  "telemetry.telemetryLevel": "off"
+  "telemetry.telemetryLevel": "off",
+  "latex-workshop.linting.lacheck.enabled": true
 }

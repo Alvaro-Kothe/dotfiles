@@ -14,8 +14,8 @@
          "all-outputs": true,
          "format": "{name}: {icon}",
          "format-icons": {
-             "1": "",
-             "2": "",
+             "1": "",
+             "2": "",
              "3": "",
              "4": "",
              "5": "",
@@ -40,6 +40,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><big>{calendar}</big></tt>",
         "format": "{:%a, %d. %b  %H:%M}"
     },
     "cpu": {
