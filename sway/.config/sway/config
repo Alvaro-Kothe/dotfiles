@@ -7,12 +7,16 @@
 # desabilita título
 default_border pixel 2
 
+exec nm-applet --indicator
+exec blueman-applet
+exec mako
+
 # Bordas
 gaps outer 20
 gaps inner 10
 
 # autotiling
-exec_always autotiling
+exec_always $HOME/.local/bin/autotiling
 
 ### Variables
 #
@@ -25,6 +29,11 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
+set $music flatpak run --socket=wayland com.spotify.Client
+set $email flatpak run --socket=wayland org.mozilla.Thunderbird
+set $files nautilus
+set $browser firefox
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -33,7 +42,7 @@ set $term foot
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
+output * bg $HOME/Imagens/wallpaper/y86g17.jpg fill
 #
 # Example configuration:
 #
@@ -89,9 +98,13 @@ input type:touchpad {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+e exec $email
+    bindsym $mod+f exec $files
+    bindsym $mod+b exec $browser
+    bindsym $mod+w exec $music
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     # bindsym $mod+d exec $menu
@@ -108,7 +121,7 @@ input type:touchpad {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec wlogout
 #
 # Moving around:
 #
@@ -166,16 +179,16 @@ input type:touchpad {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    # bindsym $mod+b splith
+    # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # bindsym $mod+s layout stacking
+    bindsym $mod+m layout tabbed
+    bindsym $mod+t layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -229,5 +242,16 @@ bindsym $mod+r mode "resize"
 bar {
   swaybar_command waybar
 }
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec $menu
 
 include /etc/sway/config.d/*
