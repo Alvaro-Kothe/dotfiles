@@ -1,0 +1,139 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/bin/nvim",
+  "editor.minimap.enabled": false,
+  "editor.rulers": [80],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "jupyter.askForKernelRestart": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "r.bracketedPaste": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.smartRelativeLine": true,
+  "git.autofetch": true,
+  "vim.camelCaseMotion.enable": true,
+  "window.openFilesInNewWindow": "default",
+  "r.rmarkdown.knit.openOutputFile": true,
+  "editor.fontFamily": "Hack Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "r.rmarkdown.knit.defaults.knitWorkingDirectory": "workspace root",
+  "path-autocomplete.pathMappings": {
+    "/": "/",
+    "./": "${folder}"
+  },
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": ["--max-line-length=88"],
+  "[python]": {
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "editor.scrollBeyondLastLine": false,
+  "editor.lineNumbers": "relative",
+  "python.linting.flake8Args": ["--max-line-length=88", "--extend-ignore=E203"],
+  "python.sortImports.args": ["--profile=black"],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "[r]": {
+    "editor.defaultFormatter": "REditorSupport.r",
+    "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+  },
+  "[rmd]": {},
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.suggestSelection": "first",
+  "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+  "settingsSync.ignoredSettings": ["terminal.integrated.fontFamily"],
+  "vim.neovimUseConfigFile": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "r.rterm.linux": "/home/alvaro/.local/bin/radian",
+  "git.confirmSync": false,
+  "latex-workshop.linting.chktex.enabled": true,
+  "ltex.language": "pt-BR",
+  "git.enableSmartCommit": true,
+  "ltex.bibtex.fields": {
+    "title": false,
+    "shortjournal": false
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "r.plot.useHttpgd": true,
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.tabs.enabled": false,
+  "python.formatting.blackPath": "~/.local/bin/black",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-k>": false
+  },
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+  "code-runner.enableAppInsights": false,
+  "telemetry.telemetryLevel": "off"
+}
