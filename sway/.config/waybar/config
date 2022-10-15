@@ -14,9 +14,9 @@
          "all-outputs": true,
          "format": "{name}: {icon}",
          "format-icons": {
-             "1": "", // Navegador
-             "2": "", // Terminal
-             "3": "", // Editor
+             "1": "", // Navegador
+             "2": "", // Editor
+             "3": "", // Terminal
              "4": "", // Música
              "5": "", // Conversa
              "6": "",  // Jogo
