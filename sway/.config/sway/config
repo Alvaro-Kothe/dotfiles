@@ -17,6 +17,7 @@ gaps inner 10
 
 # autotiling
 exec_always $HOME/.local/bin/autotiling
+# exec_always $HOME/.local/bin/import-gsettings
 
 ### Variables
 #
@@ -42,7 +43,8 @@ set $browser firefox
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Imagens/wallpaper/y86g17.jpg fill
+set $wallpaper_path $HOME/.local/share/backgrounds
+output * bg `find $wallpaper_path -type f | shuf -n 1` fill
 #
 # Example configuration:
 #

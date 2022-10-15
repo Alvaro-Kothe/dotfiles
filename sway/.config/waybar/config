@@ -14,11 +14,12 @@
          "all-outputs": true,
          "format": "{name}: {icon}",
          "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
+             "1": "", // Navegador
+             "2": "", // Terminal
+             "3": "", // Editor
+             "4": "", // Música
+             "5": "", // Conversa
+             "6": "",  // Jogo
              "urgent": "",
              "focused": "",
              "default": ""
