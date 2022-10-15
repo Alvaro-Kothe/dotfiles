@@ -185,7 +185,7 @@ input type:touchpad {
     # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    # bindsym $mod+s layout stacking
+    bindsym $mod+s layout stacking
     bindsym $mod+m layout tabbed
     bindsym $mod+t layout toggle split
 
