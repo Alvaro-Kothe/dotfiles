@@ -111,8 +111,8 @@ function _M.get()
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
+    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -148,14 +148,22 @@ function _M.get()
     awful.key({ modkey, "Shift"   }, "Right", 
               function () awful.client.moveresize( 20,   0,   0,   0) end),
 
-    awful.key( { }, "XF86MonBrightnessUp", function () brightness_widget:inc() end, {description = "increase brightness", group = "custom"}),
-awful.key( { }, "XF86MonBrightnessDown", function () brightness_widget:dec() end, {description = "decrease brightness", group = "custom"}),
+    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute( "pactl set-sink-volume @DEFAULT_SINK@ +5%") end, {description = "increase volume", group = "system"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () os.execute( "pactl set-sink-volume @DEFAULT_SINK@ -5%") end, {description = "decrease volume", group = "system"}),
+    awful.key({ }, "XF86AudioMute", function () os.execute("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, {description = "mute", group = "system"}),
+    awful.key({ }, "XF86AudioMicMute", function () os.execute("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end, {description = "mute", group = "system"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl set 5%-") end, {description = "increase brightness", group = "system"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl set 5%+") end, {description = "decrease brightness", group = "system"}),
+    awful.key({ }, "XF86AudioPlay", function () os.execute("playerctl play-pause") end, {description = "play/pause", group = "music"}),
+    awful.key({ }, "XF86AudioNext", function () os.execute("playerctl next") end, {description = "next song", group = "music"}),
+    awful.key({ }, "XF86AudioPrev", function () os.execute("playerctl previous") end, {description = "previous song", group = "music"}),
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
-
+      awful.key({ modkey }, "d", function() os.execute(
+          "rofi -show drun"
+    ) end,
+        {description = "Application launcher", group = "launcher"})
   )
 
   return globalkeys
