@@ -148,8 +148,8 @@ function _M.get()
     awful.key({ modkey, "Shift"   }, "Right", 
               function () awful.client.moveresize( 20,   0,   0,   0) end),
 
-    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute( "pactl set-sink-volume @DEFAULT_SINK@ +5%") end, {description = "increase volume", group = "system"}),
-    awful.key({ }, "XF86AudioLowerVolume", function () os.execute( "pactl set-sink-volume @DEFAULT_SINK@ -5%") end, {description = "decrease volume", group = "system"}),
+    awful.key({ }, "XF86AudioRaiseVolume", function () os.execute( "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +5%") end, {description = "increase volume", group = "system"}),
+    awful.key({ }, "XF86AudioLowerVolume", function () os.execute( "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -5%") end, {description = "decrease volume", group = "system"}),
     awful.key({ }, "XF86AudioMute", function () os.execute("pactl set-sink-mute @DEFAULT_SINK@ toggle") end, {description = "mute", group = "system"}),
     awful.key({ }, "XF86AudioMicMute", function () os.execute("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end, {description = "mute", group = "system"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl set 5%-") end, {description = "increase brightness", group = "system"}),
