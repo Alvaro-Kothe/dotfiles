@@ -6,6 +6,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Menubar library
 local menubar = require("menubar")
 
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+
 -- Resource Configuration
 local modkey = RC.vars.modkey
 local terminal = RC.vars.terminal
@@ -145,6 +147,9 @@ function _M.get()
               function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "Right", 
               function () awful.client.moveresize( 20,   0,   0,   0) end),
+
+    awful.key( { }, "XF86MonBrightnessUp", function () brightness_widget:inc() end, {description = "increase brightness", group = "custom"}),
+awful.key( { }, "XF86MonBrightnessDown", function () brightness_widget:dec() end, {description = "decrease brightness", group = "custom"}),
 
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Menubar

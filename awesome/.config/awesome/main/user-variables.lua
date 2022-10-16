@@ -4,6 +4,8 @@
 
 local home = os.getenv("HOME")
 
+-- local wallpapers_path = string.format("%s/.local/share/backgrounds/", os.getenv("HOME"))
+
 local _M = {
   -- This is used later as the default terminal and editor to run.
   -- terminal = "xterm",
@@ -18,7 +20,7 @@ local _M = {
 
   -- user defined wallpaper
   wallpaper = nil,
-  --wallpaper = home .. "/Pictures/your-wallpaper-here.jpg",
+  -- wallpaper = home .. '/.local/share/backgrounds/4jhm2gy2gx381.png'
 }
 
 return _M

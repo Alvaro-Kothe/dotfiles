@@ -5,6 +5,9 @@ local awful     = require("awful")
 -- Wibox handling library
 local wibox = require("wibox")
 
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 -- Custom Local Library: Common Functional Decoration
 local deco = {
   wallpaper = require("deco.wallpaper"),
@@ -69,9 +72,19 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
+      -- mykeyboardlayout,
+      ram_widget(),
+      batteryarc_widget({
+        show_current_level = true,
+        arc_thinkness = 1
+      }),
+      brightness_widget{
+        program = 'brightnessctl',
+        step = 2,
+      },
       wibox.widget.systray(),
       mytextclock,
+      -- logout_popup.widget(),
       s.mylayoutbox,
     },
   }
