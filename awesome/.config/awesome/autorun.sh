@@ -12,5 +12,5 @@ run blueman-applet
 run picom
 run kmix
 run redshift-gtk
-run ~/.config/polybar/launch.sh
+# run ~/.config/polybar/launch.sh
 run feh --bg-fill --randomize ~/.local/share/backgrounds

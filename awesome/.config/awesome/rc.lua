@@ -26,6 +26,7 @@ beautiful.wallpaper = RC.vars.wallpaper
 -- }}}
 
 modkey = RC.vars.modkey
+altkey = RC.vars.altkey
 
 -- Custom Local Library
 local main = {
@@ -51,9 +52,10 @@ local binding = {
 -- RC.layouts = main.layouts
 
 awful.layout.layouts = {
-    awful.layout.suit.floating,           -- 1:
 
     awful.layout.suit.tile,             -- 2:
+    awful.layout.suit.floating,           -- 1:
+    awful.layout.suit.max,                -- 10:
     -- awful.layout.suit.tile.left,        -- 3:
     -- awful.layout.suit.tile.bottom,      -- 4:
     -- awful.layout.suit.tile.top,         -- 5:
@@ -64,11 +66,10 @@ awful.layout.layouts = {
     -- awful.layout.suit.spiral,             -- 8:
     -- awful.layout.suit.spiral.dwindle,     -- 9:
     --
-    awful.layout.suit.max,                -- 10:
     -- awful.layout.suit.max.fullscreen,     -- 11:
     -- awful.layout.suit.magnifier,          -- 12:
 
-    awful.layout.suit.corner.nw           -- 13:
+    -- awful.layout.suit.corner.nw           -- 13:
 --  awful.layout.suit.corner.ne,
 --  awful.layout.suit.corner.sw,
 --  awful.layout.suit.corner.se,
@@ -110,7 +111,7 @@ root.keys(RC.globalkeys)
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Statusbar: Wibar
--- require("deco.statusbar")
+require("deco.statusbar")
 -- }}}
 
 -- {{{ Rules
