@@ -113,6 +113,9 @@ alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias r="radian"
 alias vim="nvim"
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
