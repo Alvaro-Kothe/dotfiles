@@ -24,6 +24,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
                       require("awful.hotkeys_popup.keys")
 local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
+os.setlocale(os.getenv("LANG"))
+local screenshot = "flatpak run org.flameshot.Flameshot gui"
+
 -- }}}
 
 -- {{{ Error handling
@@ -106,6 +109,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("nvim") or "nvim"
 local browser      = "firefox"
 local email        = "flatpak run org.mozilla.Thunderbird"
+local files_browser = "nautilus"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -271,11 +275,14 @@ globalkeys = mytable.join(
               {description = "destroy all notifications", group = "hotkeys"}),
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    awful.key({ }, "Print", function() awful.spawn.with_shell(screenshot) end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
+    awful.key({ altkey, "Control" }, "l", function ()
+      awful.util.spawn("sync")
+      awful.util.spawn("xautilock -locknow")
+    end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Show help
@@ -370,7 +377,7 @@ globalkeys = mytable.join(
         {description = "toggle wibox", group = "awesome"}),
 
     -- On-the-fly useless gaps change
-    awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
+    awful.key({ altkey, "Control" }, "=", function () lain.util.useless_gaps_resize(1) end,
               {description = "increment useless gaps", group = "tag"}),
     awful.key({ altkey, "Control" }, "-", function () lain.util.useless_gaps_resize(-1) end,
               {description = "decrement useless gaps", group = "tag"}),
@@ -535,6 +542,8 @@ globalkeys = mytable.join(
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "e", function () awful.spawn(email) end,
               {description = "run email", group = "launcher"}),
+    awful.key({ modkey }, "f", function () awful.spawn(files_browser) end,
+              {description = "run file browser", group = "launcher"}),
 
     -- Default
     --[[ Menubar
@@ -577,7 +586,7 @@ globalkeys = mytable.join(
 clientkeys = mytable.join(
     awful.key({ altkey, "Shift"   }, "m",      lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey, "Shift"   }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -824,4 +833,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 -- Autostart
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+require("configuration.autostart")
