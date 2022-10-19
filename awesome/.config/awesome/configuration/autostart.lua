@@ -10,10 +10,9 @@ local apps = {
   "flatpak run org.flameshot.Flameshot",
   "flatpak run org.mozilla.Thunderbird",
   "xfce4-power-manager",
-  "xautolock -detectsleep"
-    .. "-time 10 -locker 'i3lock -d -c 000070'"
-    .. "-notify 30"
-    .. "-notifier \"notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'\"",
+  "xss-lock --transfer-sleep-lock -- i3lock --nofork",
+  -- "xautolock -detectsleep"
+  --   .. " -time 10 -locker 'i3lock -c 3b423d'",
   "feh --bg-fill --randomize ~/.local/share/backgrounds",
 }
 

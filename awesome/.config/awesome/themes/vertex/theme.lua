@@ -83,7 +83,7 @@ theme.layout_cornersw                           = theme.default_dir.."/layouts/c
 theme.layout_cornerse                           = theme.default_dir.."/layouts/cornersew.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = dpi(10)
+theme.useless_gap                               = dpi(4)
 theme.titlebar_close_button_normal              = theme.default_dir.."/titlebar/close_normal.png"
 theme.titlebar_close_button_focus               = theme.default_dir.."/titlebar/close_focus.png"
 theme.titlebar_minimize_button_normal           = theme.default_dir.."/titlebar/minimize_normal.png"
@@ -106,7 +106,7 @@ theme.titlebar_maximized_button_normal_active   = theme.default_dir.."/titlebar/
 theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/maximized_focus_active.png"
 
 -- http://fontawesome.io/cheatsheet
-awful.util.tagnames = { "", "", "", "", "", "", "", "" }
+awful.util.tagnames = { "", "", "", "", "", "", "", "" }
 
 local markup = lain.util.markup
 
@@ -449,7 +449,7 @@ function theme.at_screen_connect(s)
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
+            -- wibox.widget { nil, nil, theme.mpd.widget, layout = wibox.layout.align.horizontal },
             rspace0,
             --theme.weather.icon,
             --theme.weather.widget,
