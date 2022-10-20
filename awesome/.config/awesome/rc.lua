@@ -89,15 +89,15 @@ awful.spawn.with_shell(
 
 local themes = {
     "blackburn",       -- 1
-    "copland",         -- 2
+    "copland",         -- 2*
     "dremora",         -- 3
-    "holo",            -- 4
+    "holo",            -- 4*
     "multicolor",      -- 5
     "powerarrow",      -- 6
     "powerarrow-dark", -- 7
     "rainbow",         -- 8
     "steamburn",       -- 9
-    "vertex"           -- 10
+    "vertex"           -- 10*
 }
 
 local chosen_theme = themes[4]
@@ -112,7 +112,7 @@ local email        = "flatpak run org.mozilla.Thunderbird"
 local files_browser = "nautilus"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
@@ -446,24 +446,24 @@ globalkeys = mytable.join(
               {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
-    awful.key({ }, "XF86AudioRaiseVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume up", group = "hotkeys"}),
-    awful.key({ }, "XF86AudioLowerVolume",
-        function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume down", group = "hotkeys"}),
-    awful.key({ }, "XF86AudioMute",
-        function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "toggle mute", group = "hotkeys"}),
+    -- awful.key({ }, "XF86AudioRaiseVolume",
+    --     function ()
+    --         os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+    --         beautiful.volume.update()
+    --     end,
+    --     {description = "volume up", group = "hotkeys"}),
+    -- awful.key({ }, "XF86AudioLowerVolume",
+    --     function ()
+    --         os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+    --         beautiful.volume.update()
+    --     end,
+    --     {description = "volume down", group = "hotkeys"}),
+    -- awful.key({ }, "XF86AudioMute",
+    --     function ()
+    --         os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+    --         beautiful.volume.update()
+    --     end,
+    --     {description = "toggle mute", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "m",
         function ()
             os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))

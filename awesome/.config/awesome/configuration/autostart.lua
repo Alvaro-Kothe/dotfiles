@@ -8,7 +8,6 @@ local apps = {
   "volumeicon",
   "redshift-gtk",
   "flatpak run org.flameshot.Flameshot",
-  "flatpak run org.mozilla.Thunderbird",
   "xfce4-power-manager",
   "xss-lock --transfer-sleep-lock -- i3lock --nofork",
   -- "xautolock -detectsleep"
@@ -28,3 +27,5 @@ end
 for _, i in pairs(apps) do
   run_once(i)
 end
+
+awful.spawn.with_shell("flatpak run org.mozilla.Thunderbird")
