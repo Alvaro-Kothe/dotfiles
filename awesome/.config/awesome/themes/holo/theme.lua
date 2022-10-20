@@ -17,7 +17,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
+theme.wallpaper                                 = nil
+-- theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
 theme.font                                      = "Roboto Bold 10"
 theme.taglist_font                              = "Roboto Condensed Regular 8"
 theme.fg_normal                                 = "#FFFFFF"
@@ -101,6 +102,8 @@ theme.mem = theme.icon_dir .. "/memory.png"
 local markup = lain.util.markup
 local blue   = "#80CCE6"
 local space3 = markup.font("Roboto 3", " ")
+
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 
 -- Clock
 local mytextclock = wibox.widget.textclock(markup("#FFFFFF", space3 .. "%H:%M   " .. markup.font("Roboto 4", " ")))
@@ -356,6 +359,12 @@ function theme.at_screen_connect(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
+      spr_right,
+      brightness_widget{
+        type = 'icon_and_text',
+        program = 'light',
+        percentage = true,
+      },
             --theme.mail.widget,
             -- bat.widget,
             -- spr_right,

@@ -109,7 +109,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("nvim") or "nvim"
 local browser      = "firefox"
 local email        = "flatpak run org.mozilla.Thunderbird"
-local files_browser = "nautilus"
+local files_browser = "thunar"
 
  local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
 
