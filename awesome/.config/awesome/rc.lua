@@ -111,6 +111,8 @@ local browser      = "firefox"
 local email        = "flatpak run org.mozilla.Thunderbird"
 local files_browser = "nautilus"
 
+ local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 awful.layout.layouts = {
@@ -399,8 +401,15 @@ globalkeys = mytable.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "q", 
+              function ()
+                logout_popup.launch(
+        onlock == function () awful.spawn.with_shell('i3lock') end
+      )
+              end,
+              {description = "Show logout screen", group = "custom"}),
+    -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    --           {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
