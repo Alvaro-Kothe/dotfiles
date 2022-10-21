@@ -54,12 +54,7 @@ zsh_add_plugin "romkatv/powerlevel10k"
 # More completions https://github.com/zsh-users/zsh-completions
 
 # Key-bindings
-bindkey "^p" up-line-or-beginning-search # Up
-bindkey "^n" down-line-or-beginning-search # Down
-bindkey "^k" up-line-or-beginning-search # Up
-bindkey "^j" down-line-or-beginning-search # Down
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+zsh_add_file "zsh-keybinds"
 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
@@ -70,8 +65,9 @@ bindkey "^[[1;5D" backward-word
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
+# autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
+
 
 # Environment variables set everywhere
 export EDITOR="nvim"
