@@ -3,6 +3,7 @@ awful = require("awful")
 
 local apps = {
   "lxpolkit",
+  "touchegg",
   "nm-applet --indicator",
   "blueman-applet",
   "picom",
