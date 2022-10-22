@@ -10,7 +10,8 @@ local apps = {
   "volumeicon",
   "redshift-gtk",
   "flatpak run org.flameshot.Flameshot",
-  "xfce4-power-manager",
+  -- "xfce4-power-manager",
+  "mate-power-manager",
   "xss-lock --transfer-sleep-lock -- i3lock --nofork",
   -- "xautolock -detectsleep"
   --   .. " -time 10 -locker 'i3lock -c 3b423d'",

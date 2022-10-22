@@ -371,6 +371,7 @@ end
         type = 'icon_and_text',
         program = 'light',
         percentage = true,
+        timeout = 1,
       },
             --theme.mail.widget,
             -- bat.widget,
