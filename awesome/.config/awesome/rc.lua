@@ -449,10 +449,10 @@ globalkeys = mytable.join(
     --           {description = "show weather", group = "widgets"}),
 
     -- Screen brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl set 5%+") end,
-              {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl set 5%-") end,
-              {description = "-10%", group = "hotkeys"}),
+    -- awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl set 5%+") end,
+    --           {description = "+10%", group = "hotkeys"}),
+    -- awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl set 5%-") end,
+    --           {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
     -- awful.key({ }, "XF86AudioRaiseVolume",
