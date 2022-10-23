@@ -26,8 +26,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
-# compinit
 _comp_options+=(globdots)		# Include hidden files.
+setopt nomenucomplete
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
