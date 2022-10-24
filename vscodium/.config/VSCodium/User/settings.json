@@ -134,5 +134,6 @@
   ],
   "code-runner.enableAppInsights": false,
   "telemetry.telemetryLevel": "off",
-  "latex-workshop.linting.lacheck.enabled": true
+  "latex-workshop.linting.lacheck.enabled": true,
+  "latex-workshop.synctex.afterBuild.enabled": true
 }
