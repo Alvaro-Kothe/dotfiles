@@ -256,12 +256,26 @@ local cpuwidget = wibox.container.margin(cpubg, dpi(0), dpi(0), dpi(5), dpi(5))
 
 -- Memory
 local mem_icon = wibox.widget.imagebox(theme.mem)
-local memwidget = lain.widget.mem({
+local mem = lain.widget.mem({
   settings = function()
         widget:set_markup(space3 .. markup.font(theme.font, "RAM " .. mem_now.perc
                           .. "% ") .. markup.font("Roboto 5", " "))
   end
 })
+local membg = wibox.container.background(mem.widget, theme.bg_focus, gears.shape.rectangle)
+local memwidget = wibox.container.margin(membg, dpi(0), dpi(0), dpi(5), dpi(5))
+
+-- Load
+
+local system_load = lain.widget.sysload({
+  settings = function()
+        widget:set_markup(space3 .. markup.font(theme.font, "Load " .. load_1 )
+                          .. markup.font("Roboto 5", " "))
+  end
+
+})
+local system_loadbg = wibox.container.background(system_load.widget, theme.bg_focus, gears.shape.rectangle)
+local system_loadwidget = wibox.container.margin(system_loadbg, dpi(0), dpi(0), dpi(5), dpi(5))
 
 -- Net
 local netdown_icon = wibox.widget.imagebox(theme.net_down)
@@ -333,12 +347,13 @@ function theme.at_screen_connect(s)
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
 
-local orig_filter = awful.widget.taglist.filter.all
-awful.widget.taglist.filter.all = function (t, args)
-    if t.selected or #t:clients() > 0 then
-        return orig_filter(t, args)
-    end
-end
+  -- Apenas tags com clientes visíveis (ruim quando utiliza nome no cliente)
+-- local orig_filter = awful.widget.taglist.filter.all
+-- awful.widget.taglist.filter.all = function (t, args)
+--     if t.selected or #t:clients() > 0 then
+--         return orig_filter(t, args)
+--     end
+-- end
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
 
     mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
@@ -412,6 +427,9 @@ end
             bottom_bar,
             cpu_icon,
             cpuwidget,
+            bottom_bar,
+            system_loadwidget,
+            bottom_bar,
             mem_icon,
             memwidget,
             bottom_bar,
