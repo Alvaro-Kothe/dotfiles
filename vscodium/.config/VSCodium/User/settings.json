@@ -135,5 +135,6 @@
   "code-runner.enableAppInsights": false,
   "telemetry.telemetryLevel": "off",
   "latex-workshop.linting.lacheck.enabled": true,
-  "latex-workshop.synctex.afterBuild.enabled": true
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/init.lua"
 }
