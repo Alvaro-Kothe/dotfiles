@@ -42,3 +42,5 @@ vim.opt.iskeyword:append("-")                   -- treats words with `-` as sing
 -- My config
 vim.opt.relativenumber = true                   -- Relative numbered lines
 vim.opt.colorcolumn = "80"                      -- Vertical line at column 80
+vim.cmd "set spelllang=pt_br,en_us"
+
