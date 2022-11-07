@@ -6,7 +6,7 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
-  "ltex",
+  -- "ltex",
 }
 
 local settings = {
