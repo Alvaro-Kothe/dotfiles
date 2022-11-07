@@ -44,7 +44,8 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   use {"jalvesaq/Nvim-R"} -- Funcionalidade de programar em R
-  use {"tpope/vim-surround"} -- Ao redores de palavras "({...
+  use {"tpope/vim-surround"} -- Ao redores de palavras "({...type
+  use { "lervag/vimtex" }
   -- My plugins here
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
