@@ -1,4 +1,4 @@
-vim.cmd "let g:vimtex_view_method = 'zathura'"
+vim.g.vimtex_view_method = 'zathura'
 
 
 local status_ok, vimtex = pcall(require, "vimtex")
