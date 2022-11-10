@@ -1,4 +1,4 @@
-awful = require("awful")
+local awful = require("awful")
 
 
 local apps = {
@@ -6,8 +6,8 @@ local apps = {
   "touchegg",
   "nm-applet --indicator",
   "blueman-applet",
-  "picom",
   "volumeicon",
+  "picom",
   "redshift-gtk",
   "flatpak run org.flameshot.Flameshot",
   "xfce4-power-manager",
