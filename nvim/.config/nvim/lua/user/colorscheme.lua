@@ -1,5 +1,5 @@
-vim.g.sonokai_style = "shusia"
-local colorscheme = "tokyonight-night"
+local colorscheme = "nightfox"
+-- local colorscheme = "tokyonight-moon"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
