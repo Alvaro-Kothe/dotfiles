@@ -128,3 +128,9 @@ cmp.setup({
 		ghost_text = true,
 	},
 })
+
+cmp.setup.filetype({ 'r', 'rmd', 'quarto', 'rnoweb', 'rhelp' }, {
+  sources = {
+
+  }
+})
