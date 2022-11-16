@@ -129,8 +129,8 @@ cmp.setup({
 	},
 })
 
-cmp.setup.filetype({ 'r', 'rmd', 'quarto', 'rnoweb', 'rhelp' }, {
-  sources = {
-
-  }
-})
+-- cmp.setup.filetype({ 'r', 'rmd', 'quarto', 'rnoweb', 'rhelp' }, {
+--   sources = {
+--
+--   }
+-- })

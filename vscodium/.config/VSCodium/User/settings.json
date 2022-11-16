@@ -69,7 +69,7 @@
   "settingsSync.ignoredSettings": ["terminal.integrated.fontFamily"],
   "vim.neovimUseConfigFile": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "Monokai Dimmed",
   "r.rterm.linux": "/home/alvaro/.local/bin/radian",
   "git.confirmSync": false,
   "ltex.language": "pt-BR",
@@ -134,7 +134,9 @@
   ],
   "code-runner.enableAppInsights": false,
   "telemetry.telemetryLevel": "off",
-  "latex-workshop.linting.lacheck.enabled": true,
   "latex-workshop.synctex.afterBuild.enabled": true,
-  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/init.lua"
+  "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/init.lua",
+  "ltex.additionalRules.enablePickyRules": true,
+  "zenMode.hideLineNumbers": false,
+  "latex-workshop.linting.chktex.enabled": true
 }
