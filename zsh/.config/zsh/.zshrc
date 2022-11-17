@@ -18,6 +18,7 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
+[ -f $ZDOTDIR/completion/_poetry ] && fpath+="$ZDOTDIR/completion/"
 
 # completions
 autoload -Uz compinit && compinit
@@ -61,7 +62,7 @@ zsh_add_file "zsh-keybinds"
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # Edit line in vim with ctrl-e:
