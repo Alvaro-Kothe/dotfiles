@@ -43,7 +43,6 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use {"jalvesaq/Nvim-R"} -- Funcionalidade de programar em R
   use {"tpope/vim-surround"} -- Ao redores de palavras "({...type
   use { "lervag/vimtex" }
   -- My plugins here

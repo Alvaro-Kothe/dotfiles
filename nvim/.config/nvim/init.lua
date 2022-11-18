@@ -22,4 +22,3 @@ require "user.lsp"
 require "user.dap"
 
 require "user.vimtex"
--- require "user.nvim-r"
