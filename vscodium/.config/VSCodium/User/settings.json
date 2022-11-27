@@ -138,5 +138,6 @@
   "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/init.lua",
   "ltex.additionalRules.enablePickyRules": true,
   "zenMode.hideLineNumbers": false,
-  "latex-workshop.linting.chktex.enabled": true
+  "latex-workshop.linting.chktex.enabled": true,
+  "zenMode.fullScreen": false
 }
