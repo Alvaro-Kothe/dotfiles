@@ -1,6 +1,6 @@
 local servers = {
 	"sumneko_lua",
-  "r_language_server",
+  -- "r_language_server",
   "texlab",
 	"pyright",
 	"bashls",
