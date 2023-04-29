@@ -5,7 +5,6 @@
   "editor.minimap.enabled": false,
   "editor.rulers": [80],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "jupyter.askForKernelRestart": false,
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.formatOnSave": true,
@@ -140,5 +139,6 @@
   "zenMode.hideLineNumbers": false,
   "latex-workshop.linting.chktex.enabled": true,
   "zenMode.fullScreen": false,
-  "python.venvPath": "~/.cache/pypoetry/virtualenvs"
+  "python.venvPath": "~/.cache/pypoetry/virtualenvs",
+  "git.openRepositoryInParentFolders": "always"
 }
