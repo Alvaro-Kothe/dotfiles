@@ -1,7 +1,7 @@
 local M = {
   "neovim/nvim-lspconfig",
   commit = "649137cbc53a044bffde36294ce3160cb18f32c7",
-  lazy = true,
+  lazy = false,
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
