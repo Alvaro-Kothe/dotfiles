@@ -18,7 +18,7 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
-[ -f $ZDOTDIR/completion/_poetry ] && fpath+="$ZDOTDIR/completion/"
+[ -d $ZDOTDIR/completion/ ] && fpath+="$ZDOTDIR/completion/"
 
 # completions
 autoload -Uz compinit && compinit
