@@ -1,7 +1,5 @@
 {
   "workbench.iconTheme": "material-icon-theme",
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/usr/bin/nvim",
   "editor.minimap.enabled": false,
   "editor.rulers": [80],
   "editor.defaultFormatter": "esbenp.prettier-vscode",

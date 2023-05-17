@@ -44,4 +44,4 @@ vim.opt.linebreak = true
 
 vim.opt.relativenumber = true                   -- Relative numbered lines
 vim.opt.colorcolumn = "80"                      -- Vertical line at column 80
-vim.cmd "set spelllang=pt_br,en_us"
+vim.cmd "set spelllang=pt,en"
