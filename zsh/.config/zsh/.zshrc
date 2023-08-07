@@ -5,7 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh
 HISTFILE=~/.zsh_history
 setopt appendhistory
@@ -25,7 +24,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion::complete:lsof:*' menu yes select
+zstyle ':completion::complete:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 zmodload zsh/complist
 _comp_options+=(globdots)		# Include hidden files.
 setopt nomenucomplete
@@ -72,8 +71,6 @@ zsh_add_file "zsh-keybinds"
 
 # Environment variables set everywhere
 export EDITOR="nvim"
-export TERMINAL="kitty"
-export BROWSER="firefox"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
