@@ -220,9 +220,9 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   pyright = {},
-  julials = {},
+  -- julials = {},
   -- rust_analyzer = {},
-  tsserver = {},
+  -- tsserver = {},
 
   lua_ls = {
     Lua = {
