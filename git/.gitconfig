@@ -27,3 +27,5 @@
 	excludesfile = ~/.gitignore_global
 [credential]
 	helper = cache
+[push]
+	default = current
