@@ -45,10 +45,14 @@ vim.o.relativenumber = true
 vim.o.colorcolumn = "80"
 
 -- Tabs
+vim.o.autoindent = true
+vim.o.cindent = true
+vim.o.wrap = true
+
 vim.o.expandtab = true
 vim.o.smartindent = true
-vim.o.tabstop = 8
-vim.o.softtabstop = 0
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- vim.cmd "set spelllang=pt,en"
