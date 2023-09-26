@@ -59,3 +59,5 @@ vim.o.shiftwidth = 4
 
 vim.o.splitbelow = true
 vim.o.splitright = true
+
+vim.o.scrolloff = 8
