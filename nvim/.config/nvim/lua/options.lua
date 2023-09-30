@@ -42,7 +42,7 @@ vim.o.termguicolors = true
 
 -- Relative numbered lines
 vim.o.relativenumber = true
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = '80'
 
 -- Tabs
 vim.o.autoindent = true
@@ -57,7 +57,7 @@ vim.o.shiftwidth = 4
 
 -- vim.cmd "set spelllang=pt,en"
 
-vim.o.splitbelow = true
-vim.o.splitright = true
+-- vim.o.splitbelow = true
+-- vim.o.splitright = true
 
 vim.o.scrolloff = 8
