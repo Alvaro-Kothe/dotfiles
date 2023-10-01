@@ -18,7 +18,7 @@ function M.config()
     auto_install = true,
 
     highlight = { enable = true },
-    indent = { enable = true, disable = {'python', 'julia'}},
+    indent = { enable = true, disable = { 'python', 'julia' } },
     incremental_selection = {
       enable = true,
       keymaps = {
