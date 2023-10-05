@@ -1,15 +1,15 @@
 return {
   {
-    'lewis6991/gitsigns.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       signs = {
-        add = { text = '▎' },
-        change = { text = '▎' },
-        delete = { text = '' },
-        topdelete = { text = '' },
-        changedelete = { text = '▎' },
-        untracked = { text = '▎' },
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
@@ -35,10 +35,10 @@ return {
     },
   },
   {
-    'tpope/vim-fugitive',
+    "tpope/vim-fugitive",
     config = function()
-      vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [s]tatus' })
+      vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "[G]it [s]tatus" })
     end,
   },
-  'tpope/vim-rhubarb',
+  "tpope/vim-rhubarb",
 }
