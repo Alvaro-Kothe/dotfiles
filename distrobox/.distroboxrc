@@ -1,0 +1,1 @@
+container_manager_additional_flags="--env LANG=pt_BR.UTF-8"
