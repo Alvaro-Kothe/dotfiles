@@ -1,5 +1,7 @@
 return {
   "stevearc/conform.nvim",
+  event = "VeryLazy",
+  dependencies = { "williamboman/mason.nvim" },
   opts = {},
 
   config = function()
@@ -10,6 +12,10 @@ return {
         python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        markdown = { { "prettierd", "prettier" } },
+        yaml = { { "prettierd", "prettier" } },
+        html = { { "prettierd", "prettier" } },
+        css = { { "prettierd", "prettier" } },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable

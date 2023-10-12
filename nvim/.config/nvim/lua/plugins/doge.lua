@@ -1,6 +1,19 @@
 return {
   "kkoomen/vim-doge",
+  event = "VeryLazy",
   build = ":call doge#install()",
 
-  config = function() end,
+  config = function()
+    vim.g.doge_enable_mappings = false
+
+    -- Generate comment for current line.
+    vim.keymap.set("n", "<leader>dg", "<Plug>(doge-generate)")
+    -- Interactive mode comment todo-jumping.
+    vim.keymap.set("n", "<TAB>", "<Plug>(doge-comment-jump-forward)")
+    vim.keymap.set("n", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
+    vim.keymap.set("i", "<TAB>", "<Plug>(doge-comment-jump-forward)")
+    vim.keymap.set("i", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
+    vim.keymap.set("s", "<TAB>", "<Plug>(doge-comment-jump-forward)")
+    vim.keymap.set("s", "<S-TAB>", "<Plug>(doge-comment-jump-backward)")
+  end,
 }
