@@ -12,13 +12,26 @@ function M.config()
   -- See `:help nvim-treesitter`
   require("nvim-treesitter.configs").setup({
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "vimdoc", "vim", "julia" },
+    ensure_installed = { "c", "cpp", "lua", "python", "vimdoc", "vim" },
+
+    ignore_install = {},
+
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
 
-    highlight = { enable = true, disable = { "latex" } },
-    indent = { enable = true, disable = { "python", "julia" } },
+    highlight = {
+      enable = true,
+      disable = {
+        -- Use vimtex
+        "latex",
+        -- I want to see if I am above 52 lines and writting on 2nd line.
+        "gitcommit",
+      },
+      additional_vim_regex_highlighting = false,
+    },
     incremental_selection = {
       enable = true,
       keymaps = {
