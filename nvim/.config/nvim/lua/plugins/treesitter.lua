@@ -29,6 +29,7 @@ function M.config()
         "latex",
         -- I want to see if I am above 52 lines and writting on 2nd line.
         "gitcommit",
+        "make",
       },
       additional_vim_regex_highlighting = false,
     },
