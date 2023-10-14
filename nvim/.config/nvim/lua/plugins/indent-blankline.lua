@@ -5,5 +5,11 @@ return {
   main = "ibl",
   -- Enable `lukas-reineke/indent-blankline.nvim`
   -- See `:help indent_blankline.txt`
-  opts = {},
+  opts = {
+    scope = {
+      enabled = true,
+      show_start = true,
+      show_end = false,
+    },
+  },
 }
