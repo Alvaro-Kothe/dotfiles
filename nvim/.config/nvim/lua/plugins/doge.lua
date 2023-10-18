@@ -1,7 +1,7 @@
 return {
   "kkoomen/vim-doge",
-  event = "VeryLazy",
   build = ":call doge#install()",
+  lazy = false,
 
   config = function()
     vim.g.doge_enable_mappings = false
