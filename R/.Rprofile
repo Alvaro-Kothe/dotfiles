@@ -10,10 +10,12 @@ local({
 
 ## Define new q() function
 .env$q <- function(save = "no", ...) {
-
   quit(save = save, ...)
-
 }
 
 ## Attach hidden environment
 attach(.env, warn.conflicts = FALSE)
+
+options(languageserver.formatting_style = function(options) {
+  styler::tidyverse_style()
+})
