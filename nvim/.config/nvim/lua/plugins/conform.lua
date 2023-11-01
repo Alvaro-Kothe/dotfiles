@@ -1,6 +1,7 @@
 return {
   "stevearc/conform.nvim",
-  event = "VeryLazy",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
   dependencies = { "williamboman/mason.nvim" },
   opts = {},
 
