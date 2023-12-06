@@ -1,4 +1,4 @@
-bindkey -e
+bindkey -v
 export KEYTIMEOUT=1
 
 bindkey '^[[P' delete-char
