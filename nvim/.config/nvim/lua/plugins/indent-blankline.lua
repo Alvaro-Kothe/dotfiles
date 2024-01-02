@@ -7,9 +7,7 @@ return {
   -- See `:help indent_blankline.txt`
   opts = {
     scope = {
-      enabled = true,
-      show_start = true,
-      show_end = false,
+      enabled = false,
     },
   },
 }
