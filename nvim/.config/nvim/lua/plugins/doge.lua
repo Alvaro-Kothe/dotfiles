@@ -4,7 +4,8 @@ return {
   lazy = false,
 
   config = function()
-    vim.g.doge_enable_mappings = false
+    vim.g.doge_enable_mappings = 0
+    vim.g.doge_mapping = "<leader>dg"
 
     -- Generate comment for current line.
     vim.keymap.set("n", "<leader>dg", "<Plug>(doge-generate)")

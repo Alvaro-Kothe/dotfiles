@@ -10,6 +10,7 @@ return {
     -- Installs the debug adapters for you
     "williamboman/mason.nvim",
     "jay-babu/mason-nvim-dap.nvim",
+    "theHamsta/nvim-dap-virtual-text",
 
     -- Add your own debuggers here
   },
@@ -35,43 +36,38 @@ return {
     })
 
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set("n", "<F5>", dap.continue)
-    vim.keymap.set("n", "<F1>", dap.step_into)
-    vim.keymap.set("n", "<F2>", dap.step_over)
-    vim.keymap.set("n", "<F3>", dap.step_out)
-    vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
-    vim.keymap.set("n", "<leader>B", function()
-      dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-    end)
+    local map = function(lhs, rhs, desc)
+      if desc then
+        desc = "[DAP] " .. desc
+      end
+
+      vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
+    end
+
+    map("<F5>", require("dap").continue, "continue")
+    map("<F1>", require("dap").step_into, "step into")
+    map("<F2>", require("dap").step_over, "step over")
+    map("<F3>", require("dap").step_out, "step_out")
+    map("<Leader>db", require("dap").toggle_breakpoint, "toggle breakpoint")
+    vim.keymap.set("n", "<leader>dB", function()
+      require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+    end, { desc = "Debug: Set Breakpoint" })
+    map("<Leader>dr", require("dap").repl.toggle, "toggle repl")
+    map("<leader>dw", require("dap.ui.widgets").hover, "Widgets")
+    map("<F7>", dapui.toggle, "Toggle UI")
+    map("<leader>de", require("dapui").eval, "evaluate")
+    map("<leader>dE", function()
+      require("dapui").eval(vim.fn.input("[DAP] Expression > "))
+    end, "evaluate prompt")
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
-    dapui.setup({
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
-      icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-      controls = {
-        icons = {
-          pause = "⏸",
-          play = "▶",
-          step_into = "⏎",
-          step_over = "⏭",
-          step_out = "⏮",
-          step_back = "b",
-          run_last = "▶▶",
-          terminate = "⏹",
-          disconnect = "⏏",
-        },
-      },
-    })
+    dapui.setup()
+    require("nvim-dap-virtual-text").setup({})
     -- toggle to see last session result. Without this ,you can't see session output in case of unhandled exception.
-    vim.keymap.set("n", "<F7>", dapui.toggle)
 
     dap.listeners.after.event_initialized["dapui_config"] = dapui.open
     dap.listeners.before.event_terminated["dapui_config"] = dapui.close
     dap.listeners.before.event_exited["dapui_config"] = dapui.close
-
-    -- Install golang specific config
   end,
 }
