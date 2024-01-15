@@ -53,7 +53,9 @@ return {
       require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
     end, { desc = "Debug: Set Breakpoint" })
     map("<Leader>dr", require("dap").repl.toggle, "toggle repl")
-    map("<leader>dw", require("dap.ui.widgets").hover, "Widgets")
+    map("<Leader>dlp", function()
+      require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+    end, "Log message")
     map("<F7>", dapui.toggle, "Toggle UI")
     map("<leader>de", require("dapui").eval, "evaluate")
     map("<leader>dE", function()
@@ -66,8 +68,17 @@ return {
     require("nvim-dap-virtual-text").setup({})
     -- toggle to see last session result. Without this ,you can't see session output in case of unhandled exception.
 
-    dap.listeners.after.event_initialized["dapui_config"] = dapui.open
-    dap.listeners.before.event_terminated["dapui_config"] = dapui.close
-    dap.listeners.before.event_exited["dapui_config"] = dapui.close
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+    end
   end,
 }
