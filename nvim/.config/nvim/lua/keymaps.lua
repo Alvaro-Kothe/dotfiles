@@ -34,5 +34,13 @@ keymap({ "n", "v" }, "<Space>", "<Nop>", opts)
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Neotree
-keymap("n", "<leader>fe", ":Neotree toggle  reveal_force_cwd<cr>", opts)
+-- Move Lines
+keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+keymap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+keymap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Clear search with <esc>
+keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
