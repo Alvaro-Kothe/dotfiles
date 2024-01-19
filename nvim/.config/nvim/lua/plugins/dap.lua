@@ -57,7 +57,7 @@ return {
       require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
     end, "Log message")
     map("<F7>", dapui.toggle, "Toggle UI")
-    map("<leader>de", require("dapui").eval, "evaluate")
+    vim.keymap.set({ "n", "v" }, "<leader>de", require("dapui").eval, { desc = "evaluate" })
     map("<leader>dE", function()
       require("dapui").eval(vim.fn.input("[DAP] Expression > "))
     end, "evaluate prompt")

@@ -44,3 +44,11 @@ keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Clear search with <esc>
 keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+keymap("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
+keymap("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
+keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+keymap("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })

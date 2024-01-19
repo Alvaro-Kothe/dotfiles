@@ -17,14 +17,14 @@ return {
       desc = "Explorer NeoTree (cwd)",
     },
     {
-      "<leader>ge",
+      "<leader>fg",
       function()
         require("neo-tree.command").execute({ source = "git_status", toggle = true })
       end,
       desc = "Git explorer",
     },
     {
-      "<leader>be",
+      "<leader>fb",
       function()
         require("neo-tree.command").execute({ source = "buffers", toggle = true })
       end,

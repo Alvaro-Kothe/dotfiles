@@ -15,7 +15,7 @@ local M = {
     "hrsh7th/cmp-cmdline",
 
     -- Adds a number of user-friendly snippets
-    -- "rafamadriz/friendly-snippets",
+    "rafamadriz/friendly-snippets",
   },
 }
 
