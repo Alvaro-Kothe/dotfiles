@@ -1,6 +1,5 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
+vim.cmd.colorscheme("catppuccin-macchiato")
 
 local opt = vim.opt
 

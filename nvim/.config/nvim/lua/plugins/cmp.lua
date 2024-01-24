@@ -1,7 +1,7 @@
 local M = {
   -- Autocompletion
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  lazy = true,
   dependencies = {
     "onsails/lspkind-nvim",
     -- Snippet Engine & its associated nvim-cmp source
@@ -96,7 +96,7 @@ function M.config()
       { name = "luasnip" }, -- For luasnip users.
       { name = "path" },
     }, {
-      { name = "buffer", keyword_length = 5 },
+      { name = "buffer" },
     }),
   })
 end
