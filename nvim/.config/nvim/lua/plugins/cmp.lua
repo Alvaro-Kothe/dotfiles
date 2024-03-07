@@ -16,6 +16,9 @@ local M = {
 
     -- Adds a number of user-friendly snippets
     "rafamadriz/friendly-snippets",
+
+    -- Extra
+    "micangl/cmp-vimtex",
   },
 }
 
@@ -67,26 +70,17 @@ function M.config()
         s = cmp.mapping.confirm({ select = true }),
         -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
       }),
-      ["<C-y>"] = cmp.mapping.confirm({
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_locally_jumpable() then
+      ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+      -- <c-l> will move you to the right of each of the expansion locations.
+      -- <c-h> is similar, except moving you backwards.
+      ["<C-l>"] = cmp.mapping(function()
+        if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
-        else
-          fallback()
         end
       end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.locally_jumpable(-1) then
+      ["<C-h>"] = cmp.mapping(function()
+        if luasnip.locally_jumpable(-1) then
           luasnip.jump(-1)
-        else
-          fallback()
         end
       end, { "i", "s" }),
     }),
@@ -94,6 +88,7 @@ function M.config()
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "luasnip" }, -- For luasnip users.
+      { name = "vimtex" },
       { name = "path" },
     }, {
       { name = "buffer" },

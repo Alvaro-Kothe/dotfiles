@@ -6,12 +6,20 @@ return {
   keys = {
     {
       -- Customize or remove this keymap to your liking
-      "<leader>ff",
+      "<leader>cf",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
-      mode = "",
+      mode = { "n", "v" },
       desc = "Format file",
+    },
+    {
+      "<leader>cF",
+      function()
+        require("conform").format({ formatters = { "injected" } })
+      end,
+      mode = { "n", "v" },
+      desc = "Format Injected Langs",
     },
   },
   opts = {
@@ -32,6 +40,7 @@ return {
       css = { { "prettierd", "prettier" } },
     },
     formatters = {
+      injected = { options = { ignore_errors = true } },
       stylua = {
         require_cwd = true,
       },
