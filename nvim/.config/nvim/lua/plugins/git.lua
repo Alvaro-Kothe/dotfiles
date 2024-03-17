@@ -35,10 +35,24 @@ return {
     },
   },
   {
-    "tpope/vim-fugitive",
-    config = function()
-      vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "[G]it [s]tatus" })
-    end,
+    "NeogitOrg/neogit",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    keys = {
+      {
+        "<leader>gs",
+        function()
+          require("neogit").open()
+        end,
+        desc = "Neogit",
+      },
+    },
+    opts = {},
   },
-  "tpope/vim-rhubarb",
 }
