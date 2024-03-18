@@ -18,5 +18,10 @@ if [ -d "$HOME/.cargo/bin" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# Go environment
+if [ -d "/usr/local/go" ]; then
+  export PATH="$PATH:/usr/local/go/bin"
+fi
+
 # opam configuration
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
