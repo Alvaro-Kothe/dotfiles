@@ -6,11 +6,12 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
 
     -- Installs the debug adapters for you
     "williamboman/mason.nvim",
     "jay-babu/mason-nvim-dap.nvim",
-    "theHamsta/nvim-dap-virtual-text",
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
     -- Add your own debuggers here
   },
@@ -65,21 +66,11 @@ return {
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup()
-    require("nvim-dap-virtual-text").setup({})
     -- toggle to see last session result. Without this ,you can't see session output in case of unhandled exception.
 
-    dap.listeners.before.attach.dapui_config = function()
-      dapui.open()
-    end
-    dap.listeners.before.launch.dapui_config = function()
-      dapui.open()
-    end
-    dap.listeners.before.event_terminated.dapui_config = function()
-      dapui.close()
-    end
-    dap.listeners.before.event_exited.dapui_config = function()
-      dapui.close()
-    end
+    dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+    dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+    dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
     -- Custom configuration
     local ok, jsdap_pkg = pcall(require("mason-registry").get_package, "js-debug-adapter")
