@@ -87,12 +87,20 @@ M.config = function()
       -- For more advanced luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
     }),
-    sources = {
+    sources = cmp.config.sources({
       { name = "nvim_lsp" },
-      { name = "buffer" },
-      { name = "luasnip" }, -- For luasnip users.
-      { name = "vimtex" },
+      { name = "luasnip" },
       { name = "path" },
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
+  cmp.setup.filetype("tex", {
+    sources = {
+      { name = "vimtex" },
+      { name = "luasnip" },
+      { name = "buffer" },
     },
   })
 end
