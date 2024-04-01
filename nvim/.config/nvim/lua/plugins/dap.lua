@@ -14,6 +14,7 @@ return {
     { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
     -- Add your own debuggers here
+    { "leoluz/nvim-dap-go", opts = {} },
   },
   config = function()
     local dap = require("dap")
