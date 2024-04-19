@@ -35,24 +35,15 @@ return {
     },
   },
   {
-    "NeogitOrg/neogit",
+    "tpope/vim-fugitive",
     event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-    },
+    dependencies = { "tpope/vim-rhubarb" },
     keys = {
       {
         "<leader>gs",
-        function()
-          require("neogit").open()
-        end,
-        desc = "Neogit",
+        "<cmd>Git<CR>",
+        desc = "[G]it [s]tatus",
       },
     },
-    opts = {},
   },
 }
