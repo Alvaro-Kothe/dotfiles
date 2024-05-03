@@ -22,6 +22,7 @@ local M = {
 }
 
 function M.config()
+  local lspconfig = require("lspconfig")
   -- Diagnostic keymaps
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
@@ -29,7 +30,6 @@ function M.config()
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
   vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
     callback = function(event)
       -- NOTE: Remember that lua is a real programming language, and as such it is possible
       -- to define small helper and utility functions so you don't have to repeat yourself
@@ -124,28 +124,24 @@ function M.config()
         telemetry = { enable = false },
       },
     },
+    r_language_server = {},
   }
 
   require("mason").setup()
 
-  local ensure_installed = vim.tbl_keys(servers or {})
-  vim.list_extend(ensure_installed, {
-    "stylua", -- Used to format lua code
-  })
+  local ensure_installed = { "pyright", "ruff_lsp", "lua_ls", "stylua" }
   require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
   require("mason-lspconfig").setup({
-    handlers = {
-      function(server_name)
-        local server = servers[server_name] or {}
-        -- This handles overriding only values explicitly passed
-        -- by the server configuration above. Useful when disabling
-        -- certain features of an LSP (for example, turning off formatting for tsserver)
-        server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-        require("lspconfig")[server_name].setup(server)
-      end,
-    },
+    ensure_installed = { "pyright", "lua_ls" },
   })
+
+  for server, config in pairs(servers) do
+    local opts = {
+      capabilities = config.capabilities or capabilities,
+    }
+    lspconfig[server].setup(opts)
+  end
 end
 
 return M
