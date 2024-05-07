@@ -125,6 +125,7 @@ function M.config()
       },
     },
     r_language_server = {},
+    texlab = {},
   }
 
   require("mason").setup()
