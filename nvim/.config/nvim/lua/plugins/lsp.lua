@@ -124,7 +124,9 @@ function M.config()
         telemetry = { enable = false },
       },
     },
-    r_language_server = {},
+    r_language_server = {
+      cmd = { "R", "--vanilla", "--slave", "-e", "languageserver::run()" },
+    },
     texlab = {},
   }
 
@@ -138,10 +140,8 @@ function M.config()
   })
 
   for server, config in pairs(servers) do
-    local opts = {
-      capabilities = config.capabilities or capabilities,
-    }
-    lspconfig[server].setup(opts)
+    config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, config)
+    lspconfig[server].setup(config)
   end
 end
 
