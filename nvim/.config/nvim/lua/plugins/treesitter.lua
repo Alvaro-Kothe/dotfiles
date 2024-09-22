@@ -21,6 +21,7 @@ return { -- Highlight, edit, and navigate code
     textobjects = {
       select = {
         enable = true,
+        disable = { "latex" },
 
         -- Automatically jump forward to textobj, similar to targets.vim
         lookahead = true,

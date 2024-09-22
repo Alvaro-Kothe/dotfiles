@@ -1,7 +1,8 @@
 return {
   "lervag/vimtex",
-  config = function()
-    vim.g.vimtex_view_method = "zathura_simple"
+  lazy = false,
+  init = function()
+    vim.g.vimtex_view_method = "zathura"
     vim.g.vimtex_grammar_textidote = {
       ["jar"] = "~/textidote.jar",
     }
