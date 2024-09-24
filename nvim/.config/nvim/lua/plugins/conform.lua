@@ -23,10 +23,11 @@ return {
     },
   },
   opts = {
-    format_on_save = {
-      -- I recommend these options. See :help conform.format for details.
-      lsp_fallback = true,
-      timeout_ms = 500,
+    default_format_opts = {
+      timeout_ms = 3000,
+      async = false,
+      quiet = false,
+      lsp_format = "fallback",
     },
     formatters_by_ft = {
       lua = { "stylua" },
