@@ -89,7 +89,9 @@ M.config = function()
     sources = {
       { name = "vimtex" },
       { name = "luasnip" },
-      { name = "buffer" },
+      { name = "buffer", option = {
+        keyword_pattern = [[\k\+]],
+      } },
     },
   })
 
