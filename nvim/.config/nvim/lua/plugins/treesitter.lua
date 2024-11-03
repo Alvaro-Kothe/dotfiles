@@ -11,11 +11,11 @@ return { -- Highlight, edit, and navigate code
     auto_install = true,
     highlight = {
       enable = true,
-      disable = { "latex", "r" },
+      disable = { "latex", "r", "gitcommit" },
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
       --  If you are experiencing weird indenting issues, add the language to
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-      additional_vim_regex_highlighting = { "ruby", "gitcommit", "make" },
+      additional_vim_regex_highlighting = { "ruby", "gitcommit", "make", "latex" },
     },
     indent = { enable = true, disable = { "ruby" } },
     textobjects = {

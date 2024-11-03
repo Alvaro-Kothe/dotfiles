@@ -31,8 +31,8 @@ keymap("v", ">", ">gv", opts)
 keymap({ "n", "v" }, "<Space>", "<Nop>", opts)
 
 -- Remap for dealing with word wrap
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move Lines
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -52,3 +52,10 @@ keymap("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search res
 keymap("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
 keymap("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 keymap("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+
+-- list
+keymap("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+keymap("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+
+keymap("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
+keymap("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })

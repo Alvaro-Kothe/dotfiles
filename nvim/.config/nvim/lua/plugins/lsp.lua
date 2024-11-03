@@ -24,8 +24,6 @@ local M = {
 function M.config()
   local lspconfig = require("lspconfig")
   -- Diagnostic keymaps
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
   vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
@@ -74,9 +72,6 @@ function M.config()
       -- or a suggestion from your LSP for this to activate.
       map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-      -- Opens a popup that displays documentation about the word under your cursor
-      --  See `:help K` for why this keymap
-      map("K", vim.lsp.buf.hover, "Hover Documentation")
       vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
 
       -- WARN: This is not Goto Definition, this is Goto Declaration.
