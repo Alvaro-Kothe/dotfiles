@@ -122,7 +122,13 @@ function M.config()
     r_language_server = {
       cmd = { "R", "--vanilla", "--slave", "-e", "languageserver::run()" },
     },
-    texlab = {},
+    texlab = {
+      settings = { texlab = {
+        latexindent = {
+          modifyLineBreaks = true,
+        },
+      } },
+    },
   }
 
   require("mason").setup()
