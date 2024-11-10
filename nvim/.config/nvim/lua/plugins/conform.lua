@@ -39,12 +39,11 @@ return {
           return { "isort", "black" }
         end
       end,
-      -- Use a sub-list to run only the first available formatter
-      javascript = { { "prettierd", "prettier" } },
-      markdown = { { "prettierd", "prettier" } },
-      yaml = { { "prettierd", "prettier" } },
-      html = { { "prettierd", "prettier" } },
-      css = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      markdown = { "prettierd", "prettier", stop_after_first = true },
+      yaml = { "prettierd", "prettier", stop_after_first = true },
+      html = { "prettierd", "prettier", stop_after_first = true },
+      css = { "prettierd", "prettier", stop_after_first = true },
     },
     formatters = {
       injected = { options = { ignore_errors = true } },
