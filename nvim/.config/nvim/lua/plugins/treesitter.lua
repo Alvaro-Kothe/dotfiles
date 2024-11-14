@@ -74,4 +74,8 @@ return { -- Highlight, edit, and navigate code
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
   end,
+  init = function()
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
 }

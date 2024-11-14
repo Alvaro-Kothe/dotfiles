@@ -107,7 +107,7 @@ function M.config()
 
   local servers = {
     pyright = {},
-    ruff_lsp = {
+    ruff = {
       capabilities = {
         hoverProvider = false,
       },
