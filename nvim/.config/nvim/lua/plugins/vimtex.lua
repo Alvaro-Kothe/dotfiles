@@ -10,7 +10,4 @@ return {
       ["n"] = { "K" },
     }
   end,
-  keys = {
-    { "<localLeader>l", "", desc = "+vimtex" },
-  },
 }

@@ -4,10 +4,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    notifier = {
-      enabled = true,
-      timeout = 3000,
-    },
+    notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
@@ -86,8 +83,6 @@ return {
         _G.bt = function()
           Snacks.debug.backtrace()
         end
-        vim.print = _G.dd -- Override print to use snacks for `:=` command
-
         -- Create some toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")

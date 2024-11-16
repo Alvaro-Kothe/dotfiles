@@ -8,12 +8,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-neotest/neotest-python",
   },
-  config = function()
-    require("neotest").setup({
+  opts_extend = { "adapters" },
+  opts = function()
+    return {
       adapters = {
         require("neotest-python"),
       },
-    })
+    }
   end,
   keys = {
     { "<leader>t", "", desc = "+test" },
