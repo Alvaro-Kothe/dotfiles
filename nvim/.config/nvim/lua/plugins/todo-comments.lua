@@ -18,6 +18,11 @@ return {
       end,
       desc = "Previous Todo Comment",
     },
+    {
+      "<leader>sT",
+      "<cmd>TodoTelescope keywords=TODO,FIX<cr>",
+      desc = "TODO/FIX",
+    },
   },
   opts = {},
 }

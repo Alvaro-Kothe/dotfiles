@@ -16,6 +16,87 @@ return {
     -- Add your own debuggers here
     { "leoluz/nvim-dap-go", opts = {} },
   },
+  keys = {
+    { "<leader>d", "", desc = "+debug", mode = { "n", "v" } },
+    {
+      "<F5>",
+      function()
+        require("dap").continue()
+      end,
+      desc = "continue",
+    },
+    {
+      "<F1>",
+      function()
+        require("dap").step_into()
+      end,
+      desc = "step into",
+    },
+    {
+      "<F2>",
+      function()
+        require("dap").step_over()
+      end,
+      desc = "step over",
+    },
+    {
+      "<F3>",
+      function()
+        require("dap").step_out()
+      end,
+      desc = "step_out",
+    },
+    {
+      "<Leader>db",
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      desc = "toggle breakpoint",
+    },
+    {
+      "<leader>dB",
+      function()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end,
+      desc = "Set Breakpoint",
+    },
+    {
+      "<Leader>dr",
+      function()
+        require("dap").repl.toggle()
+      end,
+      desc = "toggle repl",
+    },
+    {
+      "<Leader>dlp",
+      function()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      end,
+      desc = "Log message",
+    },
+    {
+      "<F7>",
+      function()
+        require("dapui").toggle()
+      end,
+      desc = "Toggle UI",
+    },
+    {
+      "<leader>de",
+      function()
+        require("dapui").eval()
+      end,
+      mode = { "n", "v" },
+      desc = "evaluate",
+    },
+    {
+      "<leader>dE",
+      function()
+        require("dapui").eval(vim.fn.input("[DAP] Expression > "))
+      end,
+      desc = "evaluate prompt",
+    },
+  },
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
@@ -36,33 +117,6 @@ return {
         -- "delve",
       },
     })
-
-    -- Basic debugging keymaps, feel free to change to your liking!
-    local map = function(lhs, rhs, desc)
-      if desc then
-        desc = "[DAP] " .. desc
-      end
-
-      vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
-    end
-
-    map("<F5>", require("dap").continue, "continue")
-    map("<F1>", require("dap").step_into, "step into")
-    map("<F2>", require("dap").step_over, "step over")
-    map("<F3>", require("dap").step_out, "step_out")
-    map("<Leader>db", require("dap").toggle_breakpoint, "toggle breakpoint")
-    vim.keymap.set("n", "<leader>dB", function()
-      require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-    end, { desc = "Debug: Set Breakpoint" })
-    map("<Leader>dr", require("dap").repl.toggle, "toggle repl")
-    map("<Leader>dlp", function()
-      require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-    end, "Log message")
-    map("<F7>", dapui.toggle, "Toggle UI")
-    vim.keymap.set({ "n", "v" }, "<leader>de", require("dapui").eval, { desc = "evaluate" })
-    map("<leader>dE", function()
-      require("dapui").eval(vim.fn.input("[DAP] Expression > "))
-    end, "evaluate prompt")
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|

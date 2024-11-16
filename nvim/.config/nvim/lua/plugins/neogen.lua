@@ -2,11 +2,11 @@ return {
   "danymat/neogen",
   keys = {
     {
-      "<leader>dg",
+      "<leader>cD",
       function()
         require("neogen").generate()
       end,
-      desc = "[D]ocument [G]enerate",
+      desc = "Generate Documentation",
     },
   },
   opts = { snippet_engine = "luasnip" },
