@@ -44,4 +44,14 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "r", "rnoweb" } },
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        r_language_server = {
+          cmd = { "R", "--vanilla", "--slave", "-e", "languageserver::run()" },
+        },
+      },
+    },
+  },
 }
