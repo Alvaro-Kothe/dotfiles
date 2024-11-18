@@ -7,23 +7,7 @@ return {
       "williamboman/mason.nvim",
       { "williamboman/mason-lspconfig.nvim", opts = {} },
     },
-    opts = {
-      servers = {
-        pyright = {},
-        ruff = {
-          capabilities = {
-            hoverProvider = false,
-          },
-        },
-        lua_ls = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-          },
-        },
-      },
-    },
-    config = function(_, opts)
+    init = function()
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(event)
           local map = function(keys, func, desc, mode)
@@ -90,7 +74,24 @@ return {
           end
         end,
       })
-
+    end,
+    opts = {
+      servers = {
+        pyright = {},
+        ruff = {
+          capabilities = {
+            hoverProvider = false,
+          },
+        },
+        lua_ls = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+          },
+        },
+      },
+    },
+    config = function(_, opts)
       local lspconfig = require("lspconfig")
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
