@@ -5,16 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
       "nvim-telescope/telescope-fzf-native.nvim",
-
-      -- `build` is used to run some command when the plugin is installed/updated.
-      -- This is only run then, not every time Neovim starts up.
       build = "make",
-
-      -- `cond` is a condition used to determine whether this plugin should be
-      -- installed and loaded.
-      cond = function()
-        return vim.fn.executable("make") == 1
-      end,
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons" },
@@ -33,18 +24,14 @@ return {
       { "<leader>sR", builtin.resume, desc = "Resume Search" },
       {
         "<leader>uC",
-        function()
-          builtin.colorscheme({ enable_preview = true })
-        end,
+        function() builtin.colorscheme({ enable_preview = true }) end,
         desc = "Change Colorscheme",
       },
     }
   end,
   opts = {
     extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown(),
-      },
+      ["ui-select"] = { function() require("telescope.themes").get_dropdown() end },
     },
     pickers = {
       find_files = {

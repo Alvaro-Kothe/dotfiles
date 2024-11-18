@@ -1,6 +1,4 @@
 -- [[ Setting options ]]
-vim.cmd.colorscheme("catppuccin-macchiato")
-
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write

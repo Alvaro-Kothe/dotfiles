@@ -5,7 +5,7 @@ return {
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       "williamboman/mason.nvim",
-      { "williamboman/mason-lspconfig.nvim", opts = {} },
+      { "williamboman/mason-lspconfig.nvim" },
     },
     init = function()
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -106,8 +106,16 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
+    opts = {},
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
     opts_extend = { "ensure_installed" },
-    opts = { ensure_installed = { "stylua", "lua_ls" } },
+    opts = {
+      ensure_installed = {
+        "lua_ls",
+      },
+    },
   },
   {
     "j-hui/fidget.nvim",
