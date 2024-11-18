@@ -11,35 +11,25 @@ return {
   keys = {
     {
       "<leader>fe",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-      end,
+      function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
       desc = "Explorer NeoTree (cwd)",
     },
     {
       "<leader>fg",
-      function()
-        require("neo-tree.command").execute({ source = "git_status", toggle = true })
-      end,
+      function() require("neo-tree.command").execute({ source = "git_status", toggle = true }) end,
       desc = "Git explorer",
     },
     {
       "<leader>fb",
-      function()
-        require("neo-tree.command").execute({ source = "buffers", toggle = true })
-      end,
+      function() require("neo-tree.command").execute({ source = "buffers", toggle = true }) end,
       desc = "Buffer explorer",
     },
   },
-  deactivate = function()
-    vim.cmd([[Neotree close]])
-  end,
+  deactivate = function() vim.cmd([[Neotree close]]) end,
   init = function()
     if vim.fn.argc(-1) == 1 then
-      local stat = vim.loop.fs_stat(vim.fn.argv(0))
-      if stat and stat.type == "directory" then
-        require("neo-tree")
-      end
+      local stat = vim.uv.fs_stat(vim.fn.argv(0))
+      if stat and stat.type == "directory" then require("neo-tree") end
     end
   end,
   opts = {
@@ -52,8 +42,17 @@ return {
     },
     window = {
       mappings = {
-        ["<space>"] = "none",
+        ["e"] = { function() require("neo-tree.command").execute({ source = "filesystem" }) end, desc = "filesystem" },
+        ["g"] = { function() require("neo-tree.command").execute({ source = "git_status" }) end, desc = "git status" },
+        ["O"] = "system_open",
       },
+    },
+    commands = {
+      system_open = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+      end,
     },
     default_component_configs = {
       indent = {
