@@ -6,6 +6,10 @@ return {
     init = function() vim.cmd.colorscheme("catppuccin-macchiato") end,
     ---@module "catppuccin"
     ---@type CatppuccinOptions
-    opts = {},
+    opts = {
+      integrations = {
+        blink_cmp = true
+      }
+    },
   },
 }
