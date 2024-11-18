@@ -5,7 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZDOTDIR=$HOME/.config/zsh
+export ZSH_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+export ZSH_PLUGIN_DIR="$ZSH_DATA/plugins"
+export ZSH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+fpath+="$ZSH_DATA/completion"
+
 HISTFILE=~/.zsh_history
 setopt appendhistory
 
@@ -16,8 +20,6 @@ zle_highlight=('paste:none')
 
 # beeping is annoying
 unsetopt BEEP
-
-[ -d $ZDOTDIR/completion/ ] && fpath+="$ZDOTDIR/completion/"
 
 # completions
 autoload -Uz compinit && compinit
@@ -38,23 +40,19 @@ zle -N down-line-or-beginning-search
 autoload -Uz colors && colors
 
 # Useful Functions
-source "$ZDOTDIR/zsh-functions"
+source "$ZSH_CONFIG/zsh-functions"
 
 # Normal files to source
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-aliases"
+zsh_add_file "$ZSH_CONFIG/zsh-exports"
+zsh_add_file "$ZSH_CONFIG/zsh-aliases"
+zsh_add_file "$ZSH_CONFIG/zsh-keybinds"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "romkatv/powerlevel10k"
-# zsh_add_completion "esc/conda-zsh-completion" false
-# For more plugins: https://github.com/unixorn/awesome-zsh-plugins
-# More completions https://github.com/zsh-users/zsh-completions
 
-# Key-bindings
-zsh_add_file "zsh-keybinds"
 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
@@ -69,8 +67,6 @@ zsh_add_file "zsh-keybinds"
 # bindkey '^e' edit-command-line
 
 
-# Environment variables set everywhere
-export EDITOR="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
