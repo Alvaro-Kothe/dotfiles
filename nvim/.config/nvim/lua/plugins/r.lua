@@ -50,6 +50,7 @@ return {
       servers = {
         r_language_server = {
           cmd = { "R", "--vanilla", "--slave", "-e", "languageserver::run()" },
+          manual_install = true,
         },
       },
     },
