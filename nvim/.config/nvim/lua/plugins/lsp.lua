@@ -97,7 +97,7 @@ return {
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
       local servers = opts.servers or {}
       local function setup_server(server)
-        local config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, servers[server])
+        local config = vim.tbl_deep_extend("force", {}, { capabilities = capabilities }, servers[server] or {})
         lspconfig[server].setup(config)
       end
 
