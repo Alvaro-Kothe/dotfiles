@@ -72,4 +72,15 @@ return {
       { i(1), i(2), rep(1) }
     )
   ),
+  s(
+    "frame",
+    fmta(
+      [[
+        \begin{frame}{<>}
+        	<>
+        \end{frame}
+      ]],
+      { i(1), i(2) }
+    )
+  ),
 }

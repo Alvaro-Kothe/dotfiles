@@ -11,17 +11,28 @@ return {
           -- See the configuration section for more details
           -- Load luvit types when the `vim.uv` word is found
           { path = "luvit-meta/library", words = { "vim%.uv" } },
+          { path = "snacks.nvim", words = { "Snacks" } },
         },
       },
     },
     { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
     {
       "L3MON4D3/LuaSnip",
+      dependencies = {
+        {
+          "rafamadriz/friendly-snippets",
+          config = function()
+            require("luasnip.loaders.from_vscode").lazy_load({
+              override_priority = 100,
+            })
+          end,
+        },
+      },
       build = "make install_jsregexp",
       opts = {},
       config = function(_, opts)
         require("luasnip").config.setup(opts)
-        require("luasnip.loaders.from_lua").load({ paths = { "./lua/snippets/" } })
+        require("luasnip.loaders.from_lua").lazy_load()
       end,
     },
     "saadparwaiz1/cmp_luasnip",
