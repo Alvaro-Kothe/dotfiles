@@ -2,7 +2,6 @@
 # HISTFILE="$XDG_DATA_HOME"/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
-export PATH="$HOME/.local/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 # eval "`pip completion --zsh`"
@@ -14,11 +13,6 @@ if [[ -d "$HOME/.pyenv" ]]; then
   eval "$(pyenv init -)"
 fi
 
-# Rust environment
-if [ -d "$HOME/.cargo/bin" ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
 # Go environment
 if [ -d "/usr/local/go" ]; then
   export PATH="$PATH:/usr/local/go/bin"
@@ -26,3 +20,7 @@ fi
 
 # opam configuration
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+path_add "${GOPATH:-$HOME/go}/bin"
+path_add $HOME/.cargo/bin
+path_add $HOME/.local/bin
