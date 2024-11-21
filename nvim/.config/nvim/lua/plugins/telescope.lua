@@ -29,16 +29,18 @@ return {
       },
     }
   end,
-  opts = {
-    extensions = {
-      ["ui-select"] = { function() require("telescope.themes").get_dropdown() end },
-    },
-    pickers = {
-      find_files = {
-        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+  opts = function()
+    return {
+      extensions = {
+        ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
       },
-    },
-  },
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      },
+    }
+  end,
   config = function(_, opts)
     require("telescope").setup(opts)
     pcall(require("telescope").load_extension, "fzf")
