@@ -42,7 +42,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "r", "rnoweb" } },
+    opts = { ensure_installed = { "r", "rnoweb", "markdown", "yaml" } },
   },
   {
     "neovim/nvim-lspconfig",
