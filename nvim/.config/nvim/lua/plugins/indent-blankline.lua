@@ -3,11 +3,13 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   main = "ibl",
-  -- Enable `lukas-reineke/indent-blankline.nvim`
-  -- See `:help indent_blankline.txt`
+  ---@module "ibl"
+  ---@type ibl.config
   opts = {
     scope = {
-      enabled = false,
+      -- Don't show underline, so I can read variable names in snake_case
+      show_start = false,
+      show_end = false,
     },
   },
 }
