@@ -28,4 +28,17 @@ return {
       },
     },
   },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "micangl/cmp-vimtex" },
+    opts = function()
+      require("cmp").setup.filetype("tex", {
+        sources = {
+          { name = "vimtex" },
+          { name = "buffer" },
+          -- other sources
+        },
+      })
+    end,
+  },
 }
