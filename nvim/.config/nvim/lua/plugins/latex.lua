@@ -2,6 +2,9 @@ return {
   {
     "lervag/vimtex",
     lazy = false,
+    keys = {
+      { "<localLeader>l", "", desc = "+vimtex", ft = "tex" },
+    },
     init = function()
       vim.g.vimtex_view_method = "sioyek"
       vim.g.vimtex_grammar_textidote = {
