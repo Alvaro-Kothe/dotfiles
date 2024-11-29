@@ -1,8 +1,6 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("yankHighlight", { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+  callback = function() vim.hl.on_yank() end,
 })
 
 -- close some filetypes with <q>
@@ -40,4 +38,10 @@ vim.api.nvim_create_autocmd("FileType", {
       })
     end)
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("ftSpellON", { clear = true }),
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+  callback = function() vim.opt_local.spell = true end,
 })
