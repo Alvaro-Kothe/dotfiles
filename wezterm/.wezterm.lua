@@ -13,5 +13,6 @@ config.window_padding = {
 }
 
 config.font = wezterm.font 'Hack Nerd Font'
+config.warn_about_missing_glyphs = false
 
 return config
