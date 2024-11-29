@@ -49,7 +49,8 @@ return {
     opts = {
       servers = {
         r_language_server = {
-          cmd = { "R", "--vanilla", "--slave", "-e", "languageserver::run()" },
+          -- HACK: workaround to use the .Rprofile and languageserver with `renv`.
+          cmd_env = { RENV_CONFIG_AUTOLOADER_ENABLED = "FALSE" },
           manual_install = true,
         },
       },
