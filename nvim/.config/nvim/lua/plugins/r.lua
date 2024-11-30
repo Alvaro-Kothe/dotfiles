@@ -5,6 +5,10 @@ return {
     opts = {
       hook = {
         on_filetype = function()
+          vim.keymap.set("n", "<localleader>wl", function() require("r.send").cmd("devtools::load_all()") end, {
+            buffer = true,
+            desc = "devtools::load_all()",
+          })
           local wk = require("which-key")
           wk.add({
             buffer = true,
@@ -22,6 +26,7 @@ return {
             { "<localleader>s", group = "split or send" },
             { "<localleader>t", group = "terminal" },
             { "<localleader>v", group = "view" },
+            { "<localleader>w", group = "workspace" },
           })
         end,
       },
