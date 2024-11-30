@@ -5,7 +5,7 @@ local M = {
   keys = {
     { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-    { "[b", "<cmd>BufferLineCycleNext<cr>", desc = "Previous Buffer" },
+    { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
     { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
   },
   opts = {
