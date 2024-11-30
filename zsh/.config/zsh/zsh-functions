@@ -22,3 +22,31 @@ path_add () {
         PATH="$1${PATH:+":$PATH"}"
     fi
 }
+
+projtmux () {
+  proj_dir=$(find ~/git ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+
+  # Quit if directory doesn't exist
+  [[ -d "$proj_dir" ]] || return
+
+  proj_name=$(basename "$proj_dir")
+
+  # Check if tmux is running
+  if ! tmux info &>/dev/null; then
+    # Start a new tmux session if not already running
+    tmux new-session -s "$proj_name" -c "$proj_dir"
+    return
+  fi
+
+  if ! tmux has-session -t "$proj_name" 2>/dev/null; then
+    # Create a new session if it doesn't exist
+    tmux new-session -d -s "$proj_name" -c "$proj_dir"
+  fi
+
+  # Attach or switch to the session based on whether we're already in tmux
+  if [[ -n "$TMUX" ]]; then
+    tmux switch-client -t "$proj_name"
+  else
+    tmux attach-session -t "$proj_name"
+  fi
+}
