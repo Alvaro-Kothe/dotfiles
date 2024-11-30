@@ -41,7 +41,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("ftSpellON", { clear = true }),
+  group = vim.api.nvim_create_augroup("SpellWrap", { clear = true }),
   pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
-  callback = function() vim.opt_local.spell = true end,
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.wrap = true
+  end,
 })
