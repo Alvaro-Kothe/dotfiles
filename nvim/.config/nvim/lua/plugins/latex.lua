@@ -34,14 +34,10 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "micangl/cmp-vimtex" },
-    opts = function()
-      require("cmp").setup.filetype("tex", {
-        sources = {
-          { name = "vimtex" },
-          { name = "buffer" },
-          -- other sources
-        },
-      })
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      -- It's inserted with max priority for completion group, may change it with `group_index`
+      table.insert(opts.sources, { name = "vimtex" })
     end,
   },
 }
