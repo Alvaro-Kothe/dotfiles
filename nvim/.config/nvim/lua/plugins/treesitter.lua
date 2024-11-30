@@ -4,18 +4,36 @@ return {
     build = ":TSUpdate",
     opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = { "bash", "c", "html", "lua", "markdown", "vim", "vimdoc" },
-      -- Autoinstall languages that are not installed
+      ensure_installed = {
+        "bash",
+        "c",
+        "html",
+        "json",
+        "lua",
+        "markdown",
+        "toml",
+        "vim",
+        "vimdoc",
+        "yaml",
+      },
+      ignore_install = { "latex" },
+      sync_install = false,
       auto_install = true,
       highlight = {
         enable = true,
         disable = { "latex" },
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { "ruby", "make", "latex" },
+        additional_vim_regex_highlighting = false,
       },
-      indent = { enable = true, disable = { "ruby" } },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gnn", -- set to `false` to disable one of the mappings
+          node_incremental = "grn",
+          scope_incremental = "grc",
+          node_decremental = "grm",
+        },
+      },
+      indent = { enable = true },
     },
     config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
     init = function()
