@@ -24,12 +24,12 @@ path_add () {
 }
 
 projtmux () {
-  proj_dir=$(find ~/git ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  local proj_dir=$(find ~/git ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
 
   # Quit if directory doesn't exist
   [[ -d "$proj_dir" ]] || return
 
-  proj_name=$(basename "$proj_dir")
+  local proj_name=$(basename "$proj_dir")
 
   # Check if tmux is running
   if ! tmux info &>/dev/null; then
