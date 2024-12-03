@@ -55,7 +55,7 @@ return {
       servers = {
         r_language_server = {
           -- HACK: workaround to use the .Rprofile and languageserver with `renv`.
-          cmd_env = { RENV_CONFIG_AUTOLOADER_ENABLED = "FALSE" },
+          -- cmd_env = { RENV_CONFIG_AUTOLOADER_ENABLED = "FALSE" },
           manual_install = true,
         },
       },
