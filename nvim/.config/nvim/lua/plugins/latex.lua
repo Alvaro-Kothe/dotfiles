@@ -4,6 +4,7 @@ return {
     lazy = false,
     keys = {
       { "<localLeader>l", "", desc = "+vimtex", ft = "tex" },
+      { "<localleader>C", "<plug>(vimtex-compile-ss)", desc = "Compile", ft = "tex" },
     },
     init = function()
       vim.g.vimtex_view_method = "sioyek"
