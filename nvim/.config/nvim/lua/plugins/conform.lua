@@ -7,17 +7,13 @@ return {
     {
       -- Customize or remove this keymap to your liking
       "<leader>cf",
-      function()
-        require("conform").format({ async = true, lsp_fallback = true })
-      end,
+      function() require("conform").format() end,
       mode = { "n", "v" },
       desc = "Format file",
     },
     {
       "<leader>cF",
-      function()
-        require("conform").format({ formatters = { "injected" } })
-      end,
+      function() require("conform").format({ formatters = { "injected" } }) end,
       mode = { "n", "v" },
       desc = "Format Injected Langs",
     },
