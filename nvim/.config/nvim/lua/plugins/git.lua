@@ -75,4 +75,17 @@ return {
       graph_style = "unicode",
     },
   },
+  {
+    "sindrets/diffview.nvim",
+    opts = function()
+      return {
+        hooks = {
+          diff_buf_read = function(bufnr)
+            -- Change local options in diff buffers
+            vim.opt_local.wrap = true
+          end,
+        },
+      }
+    end,
+  },
 }
