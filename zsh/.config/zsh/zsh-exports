@@ -21,6 +21,7 @@ fi
 # opam configuration
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
+path_add "$HOME/bin"
 path_add "${GOPATH:-$HOME/go}/bin"
-path_add $HOME/.cargo/bin
-path_add $HOME/.local/bin
+path_add "$HOME/.cargo/bin"
+path_add "$HOME/.local/bin"
