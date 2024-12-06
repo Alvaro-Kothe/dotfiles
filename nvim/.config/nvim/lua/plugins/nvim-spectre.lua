@@ -1,14 +1,14 @@
 return {
-  "nvim-pack/nvim-spectre",
-  event = "VeryLazy",
-  dependencies = "nvim-lua/plenary.nvim",
-  keys = {
-    {
-      "<leader>S",
-      function()
-        require("spectre").toggle()
-      end,
-      desc = "Toggle spectre",
+  {
+    "MagicDuck/grug-far.nvim",
+    opts = {},
+    cmd = "GrugFar",
+    keys = {
+      {
+        "<leader>sr",
+        function() require("grug-far").open({ transient = true }) end,
+        desc = "Search and Replace",
+      },
     },
   },
 }
