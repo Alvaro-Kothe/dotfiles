@@ -136,4 +136,16 @@ return {
       })
     end,
   },
+  { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
+  {
+    "danymat/neogen",
+    keys = {
+      {
+        "<leader>cD",
+        function() require("neogen").generate() end,
+        desc = "Generate Documentation",
+      },
+    },
+    opts = { snippet_engine = "luasnip" },
+  },
 }

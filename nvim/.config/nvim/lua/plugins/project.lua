@@ -1,16 +1,14 @@
-local M = {
-  "ahmedkhalf/project.nvim",
-  event = "VeryLazy",
+return {
+  {
+    "ahmedkhalf/project.nvim",
+    event = "VeryLazy",
+    opts = { manual_mode = true },
+    config = function(_, opts)
+      local project = require("project_nvim")
+      project.setup(opts)
+
+      local telescope = require("telescope")
+      telescope.load_extension("projects")
+    end,
+  },
 }
-
-function M.config()
-  local project = require("project_nvim")
-  project.setup({
-    manual_mode = true,
-  })
-
-  local telescope = require("telescope")
-  telescope.load_extension("projects")
-end
-
-return M
