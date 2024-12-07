@@ -7,7 +7,7 @@ return {
     {
       -- Customize or remove this keymap to your liking
       "<leader>cf",
-      function() require("conform").format() end,
+      function() require("conform").format({ async = true }) end,
       mode = { "n", "v" },
       desc = "Format file",
     },
