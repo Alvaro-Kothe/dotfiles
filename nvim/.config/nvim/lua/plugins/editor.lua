@@ -51,6 +51,12 @@ return {
     keys = function()
       local builtin = require("telescope.builtin")
       return {
+        {
+          "<leader>,",
+          function() builtin.buffers({ sort_mru = true, sort_lastused = true }) end,
+          desc = "Switch Buffer",
+        },
+        { "<leader>pc", builtin.git_commits, desc = "Checkout Commit" },
         { "<leader>sb", builtin.current_buffer_fuzzy_find, desc = "[S]earch [B]uffer" },
         { "<leader>sk", builtin.keymaps, desc = "[S]earch [K]eymaps" },
         { "<leader>sG", builtin.git_files, desc = "[S]earch [G]it Files" },
