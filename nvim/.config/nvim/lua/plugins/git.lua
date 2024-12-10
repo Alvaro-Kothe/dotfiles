@@ -68,6 +68,7 @@ return {
       { "<leader>gp", "<cmd>Neogit pull<cr>", desc = "Git Pull" },
       { "<leader>gP", "<cmd>Neogit push<cr>", desc = "Git Push" },
     },
+    cmd = { "Neogit" },
     ---@module "neogit"
     ---@type NeogitConfig
     opts = {
