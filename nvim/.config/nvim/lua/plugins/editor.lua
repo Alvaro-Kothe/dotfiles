@@ -57,7 +57,7 @@ return {
           desc = "Switch Buffer",
         },
         { "<leader>pc", builtin.git_commits, desc = "Checkout Commit" },
-        { "<leader>sb", builtin.current_buffer_fuzzy_find, desc = "[S]earch [B]uffer" },
+        { "<leader>s/", builtin.current_buffer_fuzzy_find, desc = "Search Buffer" },
         { "<leader>sk", builtin.keymaps, desc = "[S]earch [K]eymaps" },
         { "<leader>sG", builtin.git_files, desc = "[S]earch [G]it Files" },
         { "<leader>sf", builtin.find_files, desc = "[S]earch [F]iles" },
