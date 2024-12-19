@@ -75,7 +75,7 @@ return {
     end,
     opts = {
       servers = {
-        pyright = {},
+        basedpyright = {},
         ruff = {
           capabilities = {
             hoverProvider = false,

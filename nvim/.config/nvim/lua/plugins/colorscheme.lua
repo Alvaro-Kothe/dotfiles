@@ -8,7 +8,8 @@ return {
     ---@type CatppuccinOptions
     opts = {
       integrations = {
-        blink_cmp = true
+        blink_cmp = true,
+        diffview = true,
       }
     },
   },
