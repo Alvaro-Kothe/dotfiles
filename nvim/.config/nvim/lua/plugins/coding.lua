@@ -34,6 +34,9 @@ return {
         default = { "lsp", "path", "luasnip", "buffer", "lazydev" },
         cmdline = {},
         providers = {
+          buffer = {
+            score_offset = -3,
+          },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
