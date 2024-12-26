@@ -33,19 +33,12 @@ return {
     },
   },
   {
-    "saghen/blink.cmp",
-    dependencies = { "micangl/cmp-vimtex", },
-    opts = {
-      sources = {
-        default = { "vimtex" },
-        providers = {
-          vimtex = {
-            name = "vimtex",
-            module = "blink.compat.source",
-            score_offset = 100,
-          },
-        },
-      },
-    },
+    "hrsh7th/nvim-cmp",
+    dependencies = { "micangl/cmp-vimtex" },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      -- It's inserted with max priority for completion group, may change it with `group_index`
+      table.insert(opts.sources, { name = "vimtex" })
+    end,
   },
 }

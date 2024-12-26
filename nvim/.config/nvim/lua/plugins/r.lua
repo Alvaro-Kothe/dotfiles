@@ -37,20 +37,13 @@ return {
     end,
   },
   {
-    "saghen/blink.cmp",
+    "hrsh7th/nvim-cmp",
+    optional = true,
     dependencies = { "R-nvim/cmp-r" },
-    opts = {
-      sources = {
-        default = { "cmp_r" },
-        providers = {
-          cmp_r = {
-            name = "cmp_r",
-            module = "blink.compat.source",
-            score_offset = 100,
-          },
-        },
-      },
-    },
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, { name = "cmp_r" })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
