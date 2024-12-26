@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 return {
   {
     "folke/which-key.nvim",
@@ -5,7 +6,11 @@ return {
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
+      -- Remove clipboard from registers that should be searched
+      require("which-key.plugins.registers").registers = '"-:.%/#=_abcdefghijklmnopqrstuvwxyz0123456789'
     end,
+    ---@module "which-key"
+    ---@type wk.Opts
     opts = {
       spec = {
         {
