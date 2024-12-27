@@ -48,8 +48,6 @@ return {
         map("n", "<leader>ghp", gitsigns.preview_hunk, { desc = "git preview hunk" })
         map("n", "<leader>ghb", function() gitsigns.blame_line({ full = true }) end, { desc = "git blame line" })
         map("n", "<leader>gtb", gitsigns.toggle_current_line_blame, { desc = "git toggle current line blame" })
-        map("n", "<leader>ghd", gitsigns.diffthis, { desc = "git diff against index" })
-        map("n", "<leader>ghD", function() gitsigns.diffthis("~") end, { desc = "git diff against last commit" })
         map("n", "<leader>gtd", gitsigns.toggle_deleted, { desc = "git show toggle deleted" })
       end,
     },
@@ -78,6 +76,12 @@ return {
   },
   {
     "sindrets/diffview.nvim",
+    keys = {
+      { "<leader>ghd", "<cmd>DiffviewOpen<cr>", desc = "git diff against index" },
+      { "<leader>ghD", "<cmd>DiffviewOpen HEAD~<cr>", desc = "git diff against last commit" },
+      { "<leader>ghF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
+    },
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     opts = function()
       return {
         hooks = {
