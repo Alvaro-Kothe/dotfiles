@@ -1,7 +1,6 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy",
     dependencies = {
       "rcarriga/nvim-dap-ui",
       { "theHamsta/nvim-dap-virtual-text", opts = {} },
@@ -51,22 +50,6 @@ return {
         "<Leader>dlp",
         function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end,
         desc = "Log message",
-      },
-      {
-        "<F7>",
-        function() require("dapui").toggle() end,
-        desc = "Toggle UI",
-      },
-      {
-        "<leader>de",
-        function() require("dapui").eval() end,
-        mode = { "n", "v" },
-        desc = "evaluate",
-      },
-      {
-        "<leader>dE",
-        function() require("dapui").eval(vim.fn.input("[DAP] Expression > ")) end,
-        desc = "evaluate prompt",
       },
     },
     opts = function()
@@ -125,10 +108,29 @@ return {
       dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
       dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
     end,
+    keys = {
+      {
+        "<F7>",
+        function() require("dapui").toggle() end,
+        desc = "Toggle UI",
+      },
+      {
+        "<leader>de",
+        function() require("dapui").eval() end,
+        mode = { "n", "v" },
+        desc = "evaluate",
+      },
+      {
+        "<leader>dE",
+        function() require("dapui").eval(vim.fn.input("[DAP] Expression > ")) end,
+        desc = "evaluate prompt",
+      },
+    },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     dependencies = { "williamboman/mason.nvim" },
+    cmd = { "DapInstall", "DapUninstall" },
     opts = {
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
