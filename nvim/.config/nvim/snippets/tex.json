@@ -1,0 +1,47 @@
+{
+  "Typewriter Text": {
+    "prefix": ["\\textt", "tt"],
+    "body": "\\texttt{$1}$0",
+    "description": "Insert typewriter text."
+  },
+  "Figure": {
+    "prefix": ["figure"],
+    "body": [
+      "\\begin{figure}",
+      "\\centering",
+      "\\includegraphics[width=0.7\\textwidth]{$1}",
+      "\\caption{$2}",
+      "\\label{$3}",
+      "\\end{figure}"
+    ],
+    "description": "Insert figure."
+  },
+  "Table": {
+    "prefix": ["table"],
+    "body": [
+      "\\begin{table}",
+      "\\centering",
+      "\\caption{$1}",
+      "\\label{$2}",
+      "$3",
+      "\\end{table}"
+    ],
+    "description": "Insert table."
+  },
+  "Itemize": {
+    "prefix": ["itemize"],
+    "body": ["\\begin{itemize}", "\t\\item $1", "\\end{itemize}$0"]
+  },
+  "Enumerate": {
+    "prefix": ["enumerate"],
+    "body": ["\\begin{enumerate}", "\t\\item $1", "\\end{enumerate}$0"]
+  },
+  "Environment": {
+    "prefix": ["env"],
+    "body": ["\\begin{$1}", "\t$2", "\\end{$1}$0"]
+  },
+  "Frame": {
+    "prefix": ["frame"],
+    "body": ["\\begin{frame}{$1}", "\t$2", "\\end{frame}$0"]
+  }
+}
