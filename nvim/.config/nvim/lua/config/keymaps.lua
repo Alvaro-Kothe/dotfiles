@@ -21,6 +21,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-l>", ":bnext<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Tab
+keymap("n", "<leader><tab>d", "<cmd>tabclose<cr>", {desc = "Close Tab"})
+
 -- Visual indent
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
