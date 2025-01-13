@@ -31,13 +31,6 @@ projtmux () {
 
   local proj_name=$(basename "$proj_dir")
 
-  # Check if tmux is running
-  if ! tmux info &>/dev/null; then
-    # Start a new tmux session if not already running
-    tmux new-session -s "$proj_name" -c "$proj_dir"
-    return
-  fi
-
   if ! tmux has-session -t "$proj_name" 2>/dev/null; then
     # Create a new session if it doesn't exist
     tmux new-session -d -s "$proj_name" -c "$proj_dir"
