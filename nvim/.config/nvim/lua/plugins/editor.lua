@@ -74,7 +74,7 @@ return {
         { "<leader>sR", builtin.resume, desc = "Resume Search" },
         {
           "<leader>uC",
-          function() builtin.colorscheme({ enable_preview = true }) end,
+          function() builtin.colorscheme({ enable_preview = true, previewer = false }) end,
           desc = "Change Colorscheme",
         },
       }
