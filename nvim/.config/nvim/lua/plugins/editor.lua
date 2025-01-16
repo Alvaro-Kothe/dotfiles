@@ -155,6 +155,19 @@ return {
         show_start = false,
         show_end = false,
       },
+      exclude = {
+        filetypes = {
+          "lspinfo",
+          "checkhealth",
+          "help",
+          "man",
+          "gitcommit",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "''",
+          "csv",
+        },
+      },
     },
   },
   {
@@ -171,16 +184,18 @@ return {
   },
   {
     "brenoprata10/nvim-highlight-colors",
-    opts = {},
+    opts = {
+      exclude_filetypes = { "csv" },
+    },
   },
   {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
     opts = {
-      bigfile = { enabled = true },
+      bigfile = { enabled = false },
       notifier = { enabled = true },
-      quickfile = { enabled = true },
+      quickfile = { enabled = false },
       statuscolumn = { enabled = true },
       words = { enabled = true },
       styles = {

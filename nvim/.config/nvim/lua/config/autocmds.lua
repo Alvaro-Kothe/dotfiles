@@ -48,3 +48,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("manual_fold", { clear = true }),
+  pattern = { "text", "plaintex", "csv" },
+  callback = function()
+    vim.opt_local.foldmethod = "manual"
+  end,
+})

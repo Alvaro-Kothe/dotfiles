@@ -21,7 +21,14 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        disable = { "latex" },
+        disable = function(lang, buf)
+          local disabled_filetypes = { "latex" }
+          if vim.tbl_contains(disabled_filetypes, lang) then return true end
+
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then return true end
+        end,
         additional_vim_regex_highlighting = false,
       },
       incremental_selection = {
@@ -56,7 +63,11 @@ return {
           end
         end,
       }):map("<leader>ut")
-      return { max_lines = 3 }
+      local on_attach = function (bufnr)
+        local disabled_filetypes = {"csv"}
+        return not vim.tbl_contains(disabled_filetypes, vim.bo[bufnr].filetype)
+      end
+      return { max_lines = 3, on_attach = on_attach }
     end,
   },
   {
