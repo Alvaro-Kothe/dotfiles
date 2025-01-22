@@ -40,12 +40,15 @@ return {
       yaml = { "prettierd", "prettier", stop_after_first = true },
       html = { "prettierd", "prettier", stop_after_first = true },
       css = { "prettierd", "prettier", stop_after_first = true },
+      sql = { "sqlfluff" },
     },
     formatters = {
       injected = { options = { ignore_errors = true } },
-      stylua = {
-        require_cwd = true,
-      },
+      sqlfluff = {
+        args = {
+          "fix", "--dialect", "ansi", "-"
+        }
+      }
     },
   },
 }
