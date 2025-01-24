@@ -96,6 +96,10 @@ return {
 
       local ensure_installed = {}
       local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
       capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
       local servers = opts.servers or {}
       local function setup_server(server)

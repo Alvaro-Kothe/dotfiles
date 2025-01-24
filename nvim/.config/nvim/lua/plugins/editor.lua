@@ -363,4 +363,22 @@ return {
     },
     opts = {},
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    lazy = true,
+    init = function()
+      vim.o.foldcolumn = "1" -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+    end,
+    opts = {},
+    keys = function()
+      return {
+        { "zR", require("ufo").openAllFolds, desc = "open all folds" },
+        { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
+      }
+    end,
+  },
 }
