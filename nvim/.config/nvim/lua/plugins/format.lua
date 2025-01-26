@@ -39,6 +39,7 @@ return {
       markdown = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
       html = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettierd", "prettier", stop_after_first = true },
       css = { "prettierd", "prettier", stop_after_first = true },
       sql = { "sqlfluff" },
     },
@@ -46,9 +47,12 @@ return {
       injected = { options = { ignore_errors = true } },
       sqlfluff = {
         args = {
-          "fix", "--dialect", "ansi", "-"
-        }
-      }
+          "fix",
+          "--dialect",
+          "ansi",
+          "-",
+        },
+      },
     },
   },
 }
