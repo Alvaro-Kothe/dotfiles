@@ -11,7 +11,6 @@ return {
     opts = {
       appearance = {
         nerd_font_variant = "normal",
-        use_nvim_cmp_as_default = false,
       },
       keymap = {
         preset = "default",
@@ -38,13 +37,7 @@ return {
       completion = {
         documentation = {
           auto_show = true,
-        },
-        accept = {
-          auto_brackets = {
-            override_brackets_for_filetypes = {
-              tex = { "{", "}" },
-            },
-          },
+          auto_show_delay_ms = 500,
         },
       },
     },
@@ -73,6 +66,6 @@ return {
         desc = "Generate Documentation",
       },
     },
-    opts = { snippet_engine = "luasnip" },
+    opts = { snippet_engine = "nvim" },
   },
 }
