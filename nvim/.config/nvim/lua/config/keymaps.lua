@@ -22,7 +22,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Tab
-keymap("n", "<leader><tab>d", "<cmd>tabclose<cr>", {desc = "Close Tab"})
+keymap("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 
 -- Visual indent
 keymap("v", "<", "<gv", opts)
@@ -37,12 +37,12 @@ keymap({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = t
 keymap({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Move Lines
-keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-keymap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-keymap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+keymap("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
+keymap("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
+keymap("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+keymap("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+keymap("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+keymap("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- Clear search with <esc>
 keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
