@@ -308,6 +308,10 @@ return {
           ["e"] = { function() require("neo-tree.command").execute({ source = "filesystem" }) end, desc = "filesystem" },
           ["g"] = { function() require("neo-tree.command").execute({ source = "git_status" }) end, desc = "git status" },
           ["O"] = "system_open",
+          ["Y"] = {
+            function(state) vim.fn.setreg("+", state.tree:get_node().path) end,
+            desc = "copy path to clipboard",
+          },
         },
       },
       commands = {
