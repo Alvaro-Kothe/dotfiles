@@ -45,14 +45,6 @@ return {
     },
     formatters = {
       injected = { options = { ignore_errors = true } },
-      sqlfluff = {
-        args = {
-          "fix",
-          "--dialect",
-          "ansi",
-          "-",
-        },
-      },
     },
   },
 }
