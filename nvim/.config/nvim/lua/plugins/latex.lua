@@ -17,22 +17,6 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        texlab = {
-          settings = {
-            texlab = {
-              latexindent = {
-                modifyLineBreaks = true,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-  {
     "saghen/blink.cmp",
     dependencies = { "micangl/cmp-vimtex", },
     opts = {
