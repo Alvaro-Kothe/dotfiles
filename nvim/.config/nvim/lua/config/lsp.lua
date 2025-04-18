@@ -10,3 +10,6 @@ vim.lsp.enable("r_language_server")
 
 -- LaTeX
 vim.lsp.enable("texlab")
+
+-- C/C++
+vim.lsp.enable("clangd")
