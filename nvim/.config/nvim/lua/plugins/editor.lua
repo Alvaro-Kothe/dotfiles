@@ -264,6 +264,27 @@ return {
     end,
   },
   {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+    keys = {
+      {
+        "<leader>fe",
+        function() require("oil").open_float() end,
+        desc = "Open parent directory",
+      },
+    },
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     version = "*",
     dependencies = {
@@ -271,11 +292,12 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
+    cmd = "Neotree",
     keys = {
       {
-        "<leader>fe",
+        "<leader>ft",
         function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
-        desc = "Explorer NeoTree (cwd)",
+        desc = "File Tree (cwd)",
       },
       {
         "<leader>fg",
@@ -295,6 +317,9 @@ return {
         if stat and stat.type == "directory" then require("neo-tree") end
       end
     end,
+    ---@module 'neo-tree'
+    ---@type neotree.Config?
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
       sources = { "filesystem", "buffers", "git_status", "document_symbols" },
       open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
@@ -302,6 +327,7 @@ return {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
         use_libuv_file_watcher = true,
+        hijack_netrw_behavior = "disabled",
       },
       window = {
         mappings = {

@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "qf",
     "rhelp",
     "snacks_win",
+    "oil",
     "spectre_panel",
     "startuptime",
     "tsplayground",
