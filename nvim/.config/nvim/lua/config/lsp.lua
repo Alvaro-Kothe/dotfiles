@@ -13,3 +13,6 @@ vim.lsp.enable("texlab")
 
 -- C/C++
 vim.lsp.enable("clangd")
+
+-- Markdown
+vim.lsp.enable("marksman")

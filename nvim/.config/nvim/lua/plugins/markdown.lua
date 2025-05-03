@@ -15,7 +15,15 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      ignore = function (bufnr)
+        -- disable render-markdown on unnamed buffers. Useful to not highlight lsp_signature
+        if vim.api.nvim_buf_get_name(bufnr) == "" then
+          return true
+        end
+          return false
+      end
+    },
     ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
     config = function(_, opts)
       require("render-markdown").setup(opts)
