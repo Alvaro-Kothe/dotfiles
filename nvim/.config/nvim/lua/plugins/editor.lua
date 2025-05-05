@@ -187,7 +187,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-      bigfile = { enabled = false },
+      bigfile = { enabled = true },
       notifier = { enabled = true },
       quickfile = { enabled = false },
       statuscolumn = { enabled = true },
