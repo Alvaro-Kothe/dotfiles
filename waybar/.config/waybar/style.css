@@ -36,6 +36,10 @@
   border-radius: 1rem;
 }
 
+#workspaces button.urgent {
+    background-color: @red;
+}
+
 #custom-music,
 #tray,
 #backlight,
