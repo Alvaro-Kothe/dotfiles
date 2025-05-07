@@ -8,7 +8,17 @@ fi
 export ZSH_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
 export ZSH_PLUGIN_DIR="$ZSH_DATA/plugins"
 export ZSH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+# Useful Functions
+source "$ZSH_CONFIG/zsh-functions"
+
+# Normal files to source
+zsh_add_file "$ZSH_CONFIG/zsh-exports"
+zsh_add_file "$ZSH_CONFIG/zsh-aliases"
+zsh_add_file "$ZSH_CONFIG/zsh-keybinds"
+
 fpath+="$ZSH_DATA/completion"
+zsh_add_plugin "zsh-users/zsh-completions"
 
 HISTFILE=~/.zsh_history
 setopt appendhistory
@@ -39,18 +49,9 @@ zle -N down-line-or-beginning-search
 # Colors
 autoload -Uz colors && colors
 
-# Useful Functions
-source "$ZSH_CONFIG/zsh-functions"
-
-# Normal files to source
-zsh_add_file "$ZSH_CONFIG/zsh-exports"
-zsh_add_file "$ZSH_CONFIG/zsh-aliases"
-zsh_add_file "$ZSH_CONFIG/zsh-keybinds"
-
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-completions"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "romkatv/powerlevel10k"
 
