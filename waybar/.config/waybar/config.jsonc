@@ -14,6 +14,7 @@
   ],
   "modules-right": [
     "idle_inhibitor",
+    "privacy",
     "pulseaudio",
     "backlight",
     "power-profiles-daemon",
@@ -64,6 +65,28 @@
   },
   "hyprland/submap": {
     "format": "<span style=\"italic\">{}</span>"
+  },
+  "privacy": {
+    // "icon-spacing": 4,
+    // "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        // "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        // "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        // "tooltip-icon-size": 24
+      }
+    ]
   },
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
