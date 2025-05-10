@@ -72,6 +72,11 @@ return {
     opts = {
       fetch_after_checkout = true,
       graph_style = "unicode",
+      builders = {
+        NeogitCommitPopup = function(builder)
+          builder:option("c", "reedit-message", "", "Reedit previous commit message", { key_prefix = "-" })
+        end,
+      },
     },
   },
   {
