@@ -1,7 +1,6 @@
 #!/bin/sh
-# HISTFILE="$XDG_DATA_HOME"/zsh/history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=50000
+SAVEHIST=10000
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 # eval "`pip completion --zsh`"
@@ -25,6 +24,3 @@ path_add "$HOME/bin"
 path_add "${GOPATH:-$HOME/go}/bin"
 path_add "$HOME/.cargo/bin"
 path_add "$HOME/.local/bin"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-path_add "$PATH:$HOME/.rvm/bin"
