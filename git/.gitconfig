@@ -1,6 +1,6 @@
 [user]
 	email = kothe65@gmail.com
-	name = Alvaro-Kothe
+	name = Álvaro Kothe
 [include]
 	path = ~/.gitconfig_local
 [alias]
