@@ -43,12 +43,11 @@ return {
           { desc = "git reset hunk" }
         )
         map("n", "<leader>ghS", gitsigns.stage_buffer, { desc = "git stage buffer" })
-        map("n", "<leader>ghu", gitsigns.undo_stage_hunk, { desc = "git undo stage hunk" })
         map("n", "<leader>ghR", gitsigns.reset_buffer, { desc = "git reset buffer" })
         map("n", "<leader>ghp", gitsigns.preview_hunk, { desc = "git preview hunk" })
         map("n", "<leader>ghb", function() gitsigns.blame_line({ full = true }) end, { desc = "git blame line" })
         map("n", "<leader>gtb", gitsigns.toggle_current_line_blame, { desc = "git toggle current line blame" })
-        map("n", "<leader>gtd", gitsigns.toggle_deleted, { desc = "git show toggle deleted" })
+        map("n", "<leader>gti", gitsigns.preview_hunk_inline, { desc = "git preview change inline" })
       end,
     },
   },
