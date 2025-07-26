@@ -1,47 +1,19 @@
 return {
   { -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "main",
     build = ":TSUpdate",
     opts_extend = { "ensure_installed" },
-    opts = {
-      ensure_installed = {
-        "bash",
-        "c",
-        "html",
-        "json",
-        "lua",
-        "markdown",
-        "toml",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      ignore_install = { "latex" },
-      sync_install = false,
-      auto_install = true,
-      highlight = {
-        enable = true,
-        disable = function(lang, buf)
-          local disabled_filetypes = { "latex" }
-          if vim.tbl_contains(disabled_filetypes, lang) then return true end
-        end,
-        additional_vim_regex_highlighting = false,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn", -- set to `false` to disable one of the mappings
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
-      indent = { enable = true },
-    },
-    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
-    init = function()
-      -- vim.opt.foldmethod = "expr"
-      -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    opts = {},
+    config = function(_, opts)
+      local nvim_ts = require("nvim-treesitter")
+      nvim_ts.setup(opts)
+      nvim_ts.install(opts.ensure_installed)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = opts.ensure_installed,
+        callback = function() vim.treesitter.start() end,
+      })
     end,
   },
   {
