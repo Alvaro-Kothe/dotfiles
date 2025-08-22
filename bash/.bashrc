@@ -23,7 +23,3 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
-if [[ $(command -v starship) ]]; then
-    eval "$(starship init bash)"
-fi
