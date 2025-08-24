@@ -62,16 +62,16 @@ return {
           function() builtin.buffers({ sort_mru = true, sort_lastused = true }) end,
           desc = "Switch Buffer",
         },
-        { "<leader>pc", builtin.git_commits, desc = "Checkout Commit" },
+        { "<leader>pc", builtin.git_commits,               desc = "Checkout Commit" },
         { "<leader>s/", builtin.current_buffer_fuzzy_find, desc = "Search Buffer" },
-        { "<leader>sk", builtin.keymaps, desc = "[S]earch [K]eymaps" },
-        { "<leader>sG", builtin.git_files, desc = "[S]earch [G]it Files" },
-        { "<leader>sf", builtin.find_files, desc = "[S]earch [F]iles" },
-        { "<leader>sh", builtin.help_tags, desc = "[S]earch [H]elp" },
-        { "<leader>sw", builtin.grep_string, desc = "[S]earch current [W]ord" },
-        { "<leader>sg", builtin.live_grep, desc = "[S]earch by [G]rep" },
-        { "<leader>sd", builtin.diagnostics, desc = "[S]earch [D]iagnostics" },
-        { "<leader>sR", builtin.resume, desc = "Resume Search" },
+        { "<leader>sk", builtin.keymaps,                   desc = "[S]earch [K]eymaps" },
+        { "<leader>sG", builtin.git_files,                 desc = "[S]earch [G]it Files" },
+        { "<leader>sf", builtin.find_files,                desc = "[S]earch [F]iles" },
+        { "<leader>sh", builtin.help_tags,                 desc = "[S]earch [H]elp" },
+        { "<leader>sw", builtin.grep_string,               desc = "[S]earch current [W]ord" },
+        { "<leader>sg", builtin.live_grep,                 desc = "[S]earch by [G]rep" },
+        { "<leader>sd", builtin.diagnostics,               desc = "[S]earch [D]iagnostics" },
+        { "<leader>sR", builtin.resume,                    desc = "Resume Search" },
         {
           "<leader>uC",
           function() builtin.colorscheme({ enable_preview = true, previewer = false }) end,
@@ -179,9 +179,9 @@ return {
     event = "VeryLazy",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
-      { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+      { "]b",    "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-      { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
+      { "[b",    "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
     },
     opts = {
@@ -315,8 +315,8 @@ return {
           Snacks.toggle.diagnostics():map("<leader>ud")
           Snacks.toggle.line_number():map("<leader>ul")
           Snacks.toggle
-            .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-            :map("<leader>uc")
+              .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+              :map("<leader>uc")
           Snacks.toggle.treesitter():map("<leader>uT")
           Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
           Snacks.toggle.inlay_hints():map("<leader>uh")
@@ -460,7 +460,7 @@ return {
     lazy = true,
     init = function()
       vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
       vim.lsp.config("*", {
@@ -477,9 +477,15 @@ return {
     opts = {},
     keys = function()
       return {
-        { "zR", require("ufo").openAllFolds, desc = "open all folds" },
+        { "zR", require("ufo").openAllFolds,  desc = "open all folds" },
         { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
       }
     end,
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
   },
 }
