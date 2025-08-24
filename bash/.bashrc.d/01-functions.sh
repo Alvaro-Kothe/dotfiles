@@ -9,7 +9,9 @@ path_add () {
 }
 
 projtmux () {
-  local proj_dir=$(find ~/git ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  local proj_dir=$(find ~/git ~/projects ~/projects/oss ~/ \
+    -mindepth 1 -maxdepth 1 -type d \
+    -exec test -d '{}/.git' \; -print | fzf)
 
   # Quit if directory doesn't exist
   [[ -d "$proj_dir" ]] || return
