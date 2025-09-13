@@ -16,3 +16,6 @@ vim.lsp.enable("clangd")
 
 -- Markdown
 vim.lsp.enable("marksman")
+
+-- Rust
+vim.lsp.enable("rust_analyzer")
