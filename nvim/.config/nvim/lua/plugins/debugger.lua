@@ -5,12 +5,15 @@ return {
       "rcarriga/nvim-dap-ui",
       { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
-      -- Add your own debuggers here
-      { "leoluz/nvim-dap-go", opts = {} },
       "jay-babu/mason-nvim-dap.nvim",
     },
     keys = {
       { "<leader>d", "", desc = "+debug", mode = { "n", "v" } },
+      {
+        "<leader>dlr",
+        function() require("dap").run_last() end,
+        desc = "Rerun Last Session"
+      },
       {
         "<F5>",
         function() require("dap").continue() end,
