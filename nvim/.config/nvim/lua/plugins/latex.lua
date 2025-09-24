@@ -3,11 +3,21 @@ return {
     "lervag/vimtex",
     lazy = false,
     keys = {
-      { "<localLeader>l", "", desc = "+vimtex", ft = "tex" },
+      { "<localLeader>l", "",                          desc = "+vimtex", ft = "tex" },
       { "<localleader>C", "<plug>(vimtex-compile-ss)", desc = "Compile", ft = "tex" },
     },
     init = function()
-      vim.g.vimtex_view_method = "sioyek"
+      local viewer
+      if vim.fn.executable("sioyek") == 1
+      then
+        viewer = "sioyek"
+      elseif vim.fn.executable("zathura") == 1 then
+        viewer = "zathura"
+      else
+        viewer = "general"
+      end
+
+      vim.g.vimtex_view_method = viewer
       vim.g.vimtex_grammar_textidote = {
         ["jar"] = "~/textidote.jar",
       }
