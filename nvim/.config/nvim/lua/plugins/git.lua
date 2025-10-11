@@ -84,9 +84,9 @@ return {
   {
     "sindrets/diffview.nvim",
     keys = {
-      { "<leader>ghd", "<cmd>DiffviewOpen<cr>",          desc = "git diff against index" },
-      { "<leader>ghD", "<cmd>DiffviewOpen HEAD~<cr>",    desc = "git diff against last commit" },
-      { "<leader>ghF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
+      { "<leader>ghd", "<cmd>DiffviewOpen -uno<cr>",       desc = "git diff against index" },
+      { "<leader>ghD", "<cmd>DiffviewOpen HEAD~ -uno<cr>", desc = "git diff against last commit" },
+      { "<leader>ghF", "<cmd>DiffviewFileHistory %<cr>",   desc = "File history" },
     },
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     opts = function()
