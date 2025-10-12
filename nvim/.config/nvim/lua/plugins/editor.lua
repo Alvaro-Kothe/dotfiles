@@ -72,6 +72,7 @@ return {
         { "<leader>sg", builtin.live_grep,                 desc = "[S]earch by [G]rep" },
         { "<leader>sd", builtin.diagnostics,               desc = "[S]earch [D]iagnostics" },
         { "<leader>sR", builtin.resume,                    desc = "Resume Search" },
+        { "<leader>sb", builtin.builtin,                   desc = "Search Builtin Telescope" },
         {
           "<leader>uC",
           function() builtin.colorscheme({ enable_preview = true, previewer = false }) end,

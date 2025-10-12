@@ -6,7 +6,10 @@ return {
     build = ":TSUpdate",
     opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = { "python", "lua", "yaml", "gitcommit", "markdown", "toml", "rust" },
+      ensure_installed = {
+        "python", "lua", "bash",
+        "yaml", "gitcommit", "markdown", "toml",
+        "rust", "cpp", "c", },
     },
     config = function(_, opts)
       local nvim_ts = require("nvim-treesitter")
