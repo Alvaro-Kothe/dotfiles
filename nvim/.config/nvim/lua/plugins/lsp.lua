@@ -10,9 +10,4 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     opts = { ensure_installed = { "lua_ls" } },
   },
-  {
-    "j-hui/fidget.nvim",
-    enabled = false,
-    opts = {},
-  },
 }

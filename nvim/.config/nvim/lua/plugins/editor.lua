@@ -115,67 +115,6 @@ return {
     end,
   },
   {
-    "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-      {
-        "[q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").prev({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cprev)
-            if not ok then vim.notify(err, vim.log.levels.ERROR) end
-          end
-        end,
-        desc = "Previous Trouble/Quickfix Item",
-      },
-      {
-        "]q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").next({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cnext)
-            if not ok then vim.notify(err, vim.log.levels.ERROR) end
-          end
-        end,
-        desc = "Next Trouble/Quickfix Item",
-      },
-    },
-  },
-  {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -185,18 +124,7 @@ return {
       { "[b",    "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
     },
-    opts = {
-      options = {
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Neo-tree",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
-      },
-    },
+    opts = {},
   },
   {
     -- Add indentation guides even on blank lines
@@ -277,29 +205,9 @@ return {
         desc = "Delete Other Buffers",
       },
       {
-        "<leader>gg",
-        function() Snacks.lazygit() end,
-        desc = "Lazygit",
-      },
-      {
-        "<leader>gf",
-        function() Snacks.lazygit.log_file() end,
-        desc = "Lazygit Current File History",
-      },
-      {
-        "<leader>gl",
-        function() Snacks.lazygit.log() end,
-        desc = "Lazygit Log (cwd)",
-      },
-      {
         "<leader>cR",
         function() Snacks.rename.rename_file() end,
         desc = "Rename File",
-      },
-      {
-        "<leader>gB",
-        function() Snacks.gitbrowse() end,
-        desc = "Git Browse",
       },
     },
     init = function()
@@ -347,79 +255,6 @@ return {
     },
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = "Neotree",
-    keys = {
-      {
-        "<leader>ft",
-        function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
-        desc = "File Tree (cwd)",
-      },
-      {
-        "<leader>fg",
-        function() require("neo-tree.command").execute({ source = "git_status", toggle = true }) end,
-        desc = "Git explorer",
-      },
-      {
-        "<leader>fb",
-        function() require("neo-tree.command").execute({ source = "buffers", toggle = true }) end,
-        desc = "Buffer explorer",
-      },
-    },
-    deactivate = function() vim.cmd([[Neotree close]]) end,
-    init = function()
-      if vim.fn.argc(-1) == 1 then
-        local stat = vim.uv.fs_stat(vim.fn.argv(0))
-        if stat and stat.type == "directory" then require("neo-tree") end
-      end
-    end,
-    ---@module 'neo-tree'
-    ---@type neotree.Config?
-    ---@diagnostic disable-next-line: missing-fields
-    opts = {
-      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-      open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
-      filesystem = {
-        bind_to_cwd = false,
-        follow_current_file = { enabled = true },
-        use_libuv_file_watcher = true,
-        hijack_netrw_behavior = "disabled",
-      },
-      window = {
-        mappings = {
-          ["e"] = { function() require("neo-tree.command").execute({ source = "filesystem" }) end, desc = "filesystem" },
-          ["g"] = { function() require("neo-tree.command").execute({ source = "git_status" }) end, desc = "git status" },
-          ["O"] = "system_open",
-          ["Y"] = {
-            function(state) vim.fn.setreg("+", state.tree:get_node().path) end,
-            desc = "copy path to clipboard",
-          },
-        },
-      },
-      commands = {
-        system_open = function(state)
-          local node = state.tree:get_node()
-          local path = node:get_id()
-          vim.fn.jobstart({ "xdg-open", path }, { detach = true })
-        end,
-      },
-      default_component_configs = {
-        indent = {
-          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-          expander_collapsed = "",
-          expander_expanded = "",
-          expander_highlight = "NeoTreeExpander",
-        },
-      },
-    },
-  },
-  {
     "MagicDuck/grug-far.nvim",
     opts = {},
     cmd = "GrugFar",
@@ -437,16 +272,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "TodoTelescope" },
     keys = {
-      {
-        "]t",
-        function() require("todo-comments").jump_next() end,
-        desc = "Next Todo Comment",
-      },
-      {
-        "[t",
-        function() require("todo-comments").jump_prev() end,
-        desc = "Previous Todo Comment",
-      },
       {
         "<leader>sT",
         "<cmd>TodoTelescope keywords=TODO,FIX<cr>",
