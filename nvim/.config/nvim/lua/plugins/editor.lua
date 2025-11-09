@@ -315,7 +315,8 @@ return {
     opts = {
       disabled_filetypes = {
         ["gitsigns-*"] = true,
-        gitcommit = true
+        gitcommit = true,
+        [""] = true,
       }
     },
   },
