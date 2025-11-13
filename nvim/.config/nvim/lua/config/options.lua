@@ -46,3 +46,5 @@ opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 opt.foldlevel = 99
 opt.linebreak = true
+
+opt.exrc = true

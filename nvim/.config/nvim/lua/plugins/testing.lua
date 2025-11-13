@@ -13,6 +13,9 @@ return {
         adapters = {
           require("neotest-python"),
         },
+        discovery = {
+          enabled = false,
+        },
       }
     end,
     keys = {
