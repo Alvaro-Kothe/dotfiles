@@ -12,7 +12,7 @@ return {
       {
         "<leader>dlr",
         function() require("dap").run_last() end,
-        desc = "Rerun Last Session"
+        desc = "Rerun Last Session",
       },
       {
         "<F5>",
@@ -112,8 +112,11 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
-    config = function ()
-      require("dap-python").setup("uv")
-    end
-  }
+    lazy = false,
+    keys = {
+      { "<leader>dPt", function() require("dap-python").test_method() end, desc = "Debug Method", ft = "python" },
+      { "<leader>dPc", function() require("dap-python").test_class() end, desc = "Debug Class", ft = "python" },
+    },
+    config = function() require("dap-python").setup("debugpy-adapter") end,
+  },
 }
