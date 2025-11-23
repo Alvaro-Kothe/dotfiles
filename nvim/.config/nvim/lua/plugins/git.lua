@@ -59,9 +59,6 @@ return {
     },
     keys = {
       { "<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status" },
-      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Git Commit" },
-      { "<leader>gp", "<cmd>Neogit pull<cr>", desc = "Git Pull" },
-      { "<leader>gP", "<cmd>Neogit push<cr>", desc = "Git Push" },
     },
     cmd = { "Neogit" },
     ---@module "neogit"
