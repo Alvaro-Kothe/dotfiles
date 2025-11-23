@@ -98,9 +98,9 @@ return {
     event = "VeryLazy",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
-      { "]b",    "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+      { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-      { "[b",    "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
+      { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
     },
     opts = {},
@@ -203,8 +203,8 @@ return {
           Snacks.toggle.diagnostics():map("<leader>ud")
           Snacks.toggle.line_number():map("<leader>ul")
           Snacks.toggle
-              .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-              :map("<leader>uc")
+            .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+            :map("<leader>uc")
           Snacks.toggle.treesitter():map("<leader>uT")
           Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
           Snacks.toggle.inlay_hints():map("<leader>uh")
@@ -265,7 +265,7 @@ return {
     lazy = true,
     init = function()
       vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
       vim.lsp.config("*", {
@@ -282,7 +282,7 @@ return {
     opts = {},
     keys = function()
       return {
-        { "zR", require("ufo").openAllFolds,  desc = "open all folds" },
+        { "zR", require("ufo").openAllFolds, desc = "open all folds" },
         { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
       }
     end,
@@ -293,10 +293,10 @@ return {
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       disabled_filetypes = {
-        ["gitsigns-*"] = true,
+        ["gitsigns*"] = true,
         gitcommit = true,
         [""] = true,
-      }
+      },
     },
   },
 }

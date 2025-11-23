@@ -7,9 +7,17 @@ return {
     opts_extend = { "ensure_installed" },
     opts = {
       ensure_installed = {
-        "python", "lua", "bash",
-        "yaml", "gitcommit", "markdown", "toml",
-        "rust", "cpp", "c", },
+        "python",
+        "lua",
+        "bash",
+        "yaml",
+        "gitcommit",
+        "markdown",
+        "toml",
+        "rust",
+        "cpp",
+        "c",
+      },
     },
     config = function(_, opts)
       local nvim_ts = require("nvim-treesitter")
@@ -59,7 +67,7 @@ return {
         -- mapping query_strings to modes.
         selection_modes = {
           ["@parameter.outer"] = "v", -- charwise
-          ["@function.outer"] = "V",  -- linewise
+          ["@function.outer"] = "V", -- linewise
           ["@class.outer"] = "<c-v>", -- blockwise
         },
         -- If you set this to `true` (default is `false`) then any textobject is

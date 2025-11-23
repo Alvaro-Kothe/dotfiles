@@ -3,13 +3,12 @@ return {
     "lervag/vimtex",
     lazy = false,
     keys = {
-      { "<localLeader>l", "",                          desc = "+vimtex", ft = "tex" },
+      { "<localLeader>l", "", desc = "+vimtex", ft = "tex" },
       { "<localleader>C", "<plug>(vimtex-compile-ss)", desc = "Compile", ft = "tex" },
     },
     init = function()
       local viewer
-      if vim.fn.executable("sioyek") == 1
-      then
+      if vim.fn.executable("sioyek") == 1 then
         viewer = "sioyek"
       elseif vim.fn.executable("zathura") == 1 then
         viewer = "zathura"
@@ -28,7 +27,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    dependencies = { "micangl/cmp-vimtex", },
+    dependencies = { "micangl/cmp-vimtex" },
     opts = {
       sources = {
         default = { "vimtex" },

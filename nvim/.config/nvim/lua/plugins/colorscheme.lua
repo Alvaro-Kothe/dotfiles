@@ -10,7 +10,7 @@ return {
       integrations = {
         blink_cmp = true,
         diffview = true,
-      }
+      },
     },
   },
 }

@@ -10,7 +10,9 @@ return { -- Collection of various small independent plugins/modules
     require("mini.ai").setup({
       n_lines = 500,
       mappings = {
-        goto_left = "", goto_right = "" }
+        goto_left = "",
+        goto_right = "",
+      },
     })
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)

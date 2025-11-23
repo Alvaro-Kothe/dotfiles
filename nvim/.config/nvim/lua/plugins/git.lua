@@ -54,14 +54,14 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
     },
     keys = {
-      { "<leader>gs", "<cmd>Neogit<cr>",        desc = "Git Status" },
+      { "<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status" },
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Git Commit" },
-      { "<leader>gp", "<cmd>Neogit pull<cr>",   desc = "Git Pull" },
-      { "<leader>gP", "<cmd>Neogit push<cr>",   desc = "Git Push" },
+      { "<leader>gp", "<cmd>Neogit pull<cr>", desc = "Git Pull" },
+      { "<leader>gP", "<cmd>Neogit push<cr>", desc = "Git Push" },
     },
     cmd = { "Neogit" },
     ---@module "neogit"
@@ -70,7 +70,7 @@ return {
       fetch_after_checkout = true,
       graph_style = "unicode",
       integrations = {
-        diffview = false
+        diffview = false,
       },
       builders = {
         NeogitCommitPopup = function(builder)
@@ -82,9 +82,9 @@ return {
   {
     "sindrets/diffview.nvim",
     keys = {
-      { "<leader>ghd", "<cmd>DiffviewOpen -uno<cr>",       desc = "git diff against index" },
+      { "<leader>ghd", "<cmd>DiffviewOpen -uno<cr>", desc = "git diff against index" },
       { "<leader>ghD", "<cmd>DiffviewOpen HEAD~ -uno<cr>", desc = "git diff against last commit" },
-      { "<leader>ghF", "<cmd>DiffviewFileHistory %<cr>",   desc = "File history" },
+      { "<leader>ghF", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
     },
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     opts = function()
