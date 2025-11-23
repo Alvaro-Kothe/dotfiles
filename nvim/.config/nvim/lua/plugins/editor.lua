@@ -43,60 +43,39 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    -- branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { -- If encountering errors, see telescope-fzf-native README for installation instructions
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- or if using mini.icons/mini.nvim
+    -- dependencies = { "nvim-mini/mini.icons" },
+    opts = {},
+    init = function() require("fzf-lua").register_ui_select() end,
+    keys = {
+      {
+        "<leader>,",
+        "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
+        desc = "Switch Buffer",
       },
-      { "nvim-telescope/telescope-ui-select.nvim" },
-      { "nvim-tree/nvim-web-devicons" },
+      { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+      { "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Search Files" },
+      { "<leader>sh", "<cmd>FzfLua helptags<cr>", desc = "[S]earch [H]elp" },
+      { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "[S]earch by [G]rep" },
+      { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "[S]earch current [W]ord" },
+      { "<leader>sR", "<cmd>FzfLua resume<cr>", desc = "Resume Search" },
+      { "<leader>sb", "<cmd>FzfLua builtin<cr>", desc = "Search Builtin" },
+      { "<leader>sm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
+      -- search
+      {
+        "<leader>ss",
+        "<cmd>FzfLua lsp_document_symbols<cr>",
+        desc = "[S]earch Document [S]ymbols",
+      },
+      {
+        "<leader>sS",
+        "<cmd>FzfLua lsp_live_workspace_symbols<cr>",
+        desc = "[S]earch Workspace [S]ymbols",
+      },
     },
-    keys = function()
-      local builtin = require("telescope.builtin")
-      return {
-        {
-          "<leader>,",
-          function() builtin.buffers({ sort_mru = true, sort_lastused = true }) end,
-          desc = "Switch Buffer",
-        },
-        { "<leader>pc", builtin.git_commits,               desc = "Checkout Commit" },
-        { "<leader>s/", builtin.current_buffer_fuzzy_find, desc = "Search Buffer" },
-        { "<leader>sk", builtin.keymaps,                   desc = "[S]earch [K]eymaps" },
-        { "<leader>sG", builtin.git_files,                 desc = "[S]earch [G]it Files" },
-        { "<leader>sf", builtin.find_files,                desc = "[S]earch [F]iles" },
-        { "<leader>sh", builtin.help_tags,                 desc = "[S]earch [H]elp" },
-        { "<leader>sw", builtin.grep_string,               desc = "[S]earch current [W]ord" },
-        { "<leader>sg", builtin.live_grep,                 desc = "[S]earch by [G]rep" },
-        { "<leader>sd", builtin.diagnostics,               desc = "[S]earch [D]iagnostics" },
-        { "<leader>sR", builtin.resume,                    desc = "Resume Search" },
-        { "<leader>sb", builtin.builtin,                   desc = "Search Builtin Telescope" },
-        {
-          "<leader>uC",
-          function() builtin.colorscheme({ enable_preview = true, previewer = false }) end,
-          desc = "Change Colorscheme",
-        },
-      }
-    end,
-    opts = function()
-      return {
-        extensions = {
-          ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
-        },
-        pickers = {
-          find_files = {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-          },
-        },
-      }
-    end,
-    config = function(_, opts)
-      require("telescope").setup(opts)
-      pcall(require("telescope").load_extension, "fzf")
-      pcall(require("telescope").load_extension, "ui-select")
-    end,
   },
   {
     "windwp/nvim-autopairs",

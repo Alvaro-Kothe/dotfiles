@@ -56,8 +56,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",         -- required
       "sindrets/diffview.nvim",        -- optional - Diff integration
-
-      "nvim-telescope/telescope.nvim", -- optional
     },
     keys = {
       { "<leader>gs", "<cmd>Neogit<cr>",        desc = "Git Status" },
