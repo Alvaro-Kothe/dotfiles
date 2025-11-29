@@ -48,7 +48,26 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     -- dependencies = { "nvim-mini/mini.icons" },
-    opts = {},
+    opts = {
+      keymap = {
+        builtin = {
+          true,
+          ["<C-d>"] = "preview-page-down",
+          ["<C-u>"] = "preview-page-up",
+        },
+        fzf = {
+          true,
+          ["ctrl-d"] = "preview-page-down",
+          ["ctrl-u"] = "preview-page-up",
+          ["ctrl-q"] = "select-all+accept",
+        },
+      },
+      previewers = {
+        builtin = {
+          render_markdown = { enabled = false },
+        },
+      },
+    },
     init = function() require("fzf-lua").register_ui_select() end,
     keys = {
       {
