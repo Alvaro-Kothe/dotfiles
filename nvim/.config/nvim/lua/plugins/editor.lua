@@ -318,4 +318,7 @@ return {
       },
     },
   },
+  {
+    "tpope/vim-dispatch",
+  },
 }
