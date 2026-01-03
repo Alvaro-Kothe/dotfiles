@@ -4,8 +4,6 @@ return {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       { "theHamsta/nvim-dap-virtual-text", opts = {} },
-
-      "jay-babu/mason-nvim-dap.nvim",
     },
     keys = {
       { "<leader>d", "", desc = "+debug", mode = { "n", "v" } },
@@ -109,27 +107,6 @@ return {
         "<leader>dE",
         function() require("dapui").eval(vim.fn.input("[DAP] Expression > ")) end,
         desc = "evaluate prompt",
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    cmd = { "DapInstall", "DapUninstall" },
-    opts = {
-      -- Makes a best effort to setup the various debuggers with
-      -- reasonable debug configurations
-      automatic_setup = true,
-
-      -- You can provide additional configuration to the handlers,
-      -- see mason-nvim-dap README for more information
-      handlers = {},
-
-      -- You'll need to check that you have the required things installed
-      -- online, please don't ask me how to install them :)
-      ensure_installed = {
-        -- Update this to ensure that you have the debuggers for the langs you want
-        -- "delve",
       },
     },
   },

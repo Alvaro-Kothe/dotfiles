@@ -97,22 +97,6 @@ return {
     },
   },
   {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    -- Optional dependency
-    opts = {},
-    config = function(_, opts)
-      local npairs = require("nvim-autopairs")
-      npairs.setup(opts)
-
-      local Rule = require("nvim-autopairs.rule")
-      local cond = require("nvim-autopairs.conds")
-
-      -- Disable autopairs for roxygen2 docs prefix
-      npairs.get_rules("'")[1]:with_pair(cond.not_before_text("#"))
-    end,
-  },
-  {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -121,6 +105,7 @@ return {
       { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
+      { "<leader>bdo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close Other Buffers" },
     },
     opts = {},
   },
@@ -163,73 +148,6 @@ return {
         lualine_c = { { "filename", path = 1 } },
       },
     },
-  },
-  {
-    "brenoprata10/nvim-highlight-colors",
-    opts = {
-      exclude_filetypes = { "csv" },
-    },
-  },
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-      bigfile = { enabled = true },
-      notifier = { enabled = true },
-      quickfile = { enabled = false },
-      statuscolumn = { enabled = true },
-      words = { enabled = false },
-      styles = {
-        notification = {
-          wo = { wrap = true }, -- Wrap notifications
-        },
-      },
-    },
-    keys = {
-      {
-        "<leader>un",
-        function() Snacks.notifier.hide() end,
-        desc = "Dismiss All Notifications",
-      },
-      {
-        "<leader>bdd",
-        function() Snacks.bufdelete() end,
-        desc = "Delete Buffer",
-      },
-      {
-        "<leader>bdo",
-        function() Snacks.bufdelete.other() end,
-        desc = "Delete Other Buffers",
-      },
-      {
-        "<leader>cR",
-        function() Snacks.rename.rename_file() end,
-        desc = "Rename File",
-      },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "VeryLazy",
-        callback = function()
-          -- Setup some globals for debugging (lazy-loaded)
-          _G.dd = function(...) Snacks.debug.inspect(...) end
-          _G.bt = function() Snacks.debug.backtrace() end
-          -- Create some toggle mappings
-          Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-          Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-          Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-          Snacks.toggle.diagnostics():map("<leader>ud")
-          Snacks.toggle.line_number():map("<leader>ul")
-          Snacks.toggle
-            .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-            :map("<leader>uc")
-          Snacks.toggle.treesitter():map("<leader>uT")
-          Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-          Snacks.toggle.inlay_hints():map("<leader>uh")
-        end,
-      })
-    end,
   },
   {
     "stevearc/oil.nvim",
@@ -278,45 +196,16 @@ return {
     },
     opts = {},
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
-    lazy = true,
-    init = function()
-      vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-      vim.lsp.config("*", {
-        capabilities = {
-          textDocument = {
-            foldingRange = {
-              dynamicRegistration = false,
-              lineFoldingOnly = true,
-            },
-          },
-        },
-      })
+  { -- Collection of various small independent plugins/modules
+    "echasnovski/mini.nvim",
+    config = function()
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
+      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - sd'   - [S]urround [D]elete [']quotes
+      -- - sr)'  - [S]urround [R]eplace [)] [']
+      require("mini.surround").setup()
     end,
-    opts = {},
-    keys = function()
-      return {
-        { "zR", require("ufo").openAllFolds, desc = "open all folds" },
-        { "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
-      }
-    end,
-  },
-  {
-    "m4xshen/hardtime.nvim",
-    lazy = false,
-    dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {
-      disabled_filetypes = {
-        ["gitsigns*"] = true,
-        gitcommit = true,
-        [""] = true,
-      },
-    },
   },
   {
     "tpope/vim-dispatch",

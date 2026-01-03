@@ -52,22 +52,10 @@ return {
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "luvit-meta/library", words = { "vim%.uv" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
       },
     },
   },
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
   { "saghen/blink.compat", version = "*", lazy = true },
   { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
-  {
-    "danymat/neogen",
-    keys = {
-      {
-        "<leader>cD",
-        function() require("neogen").generate() end,
-        desc = "Generate Documentation",
-      },
-    },
-    opts = { snippet_engine = "nvim" },
-  },
 }
