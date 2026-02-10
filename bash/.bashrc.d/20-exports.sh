@@ -1,5 +1,7 @@
 export HISTSIZE=50000
-export MANPAGER='nvim +Man!'
+if command -v nvim > /dev/null; then
+  export MANPAGER='nvim +Man!'
+fi
 export MANWIDTH=999
 export EDITOR="nvim"
 
