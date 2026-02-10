@@ -1,5 +1,5 @@
 -- Python
-vim.lsp.enable("pyright")
+vim.lsp.enable("ty")
 vim.lsp.enable("ruff")
 
 -- Lua
