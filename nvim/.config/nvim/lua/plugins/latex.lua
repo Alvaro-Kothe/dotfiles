@@ -7,21 +7,15 @@ return {
       { "<localleader>C", "<plug>(vimtex-compile-ss)", desc = "Compile", ft = "tex" },
     },
     init = function()
-      local viewer
-      if vim.fn.executable("sioyek") == 1 then
-        viewer = "sioyek"
-      elseif vim.fn.executable("zathura") == 1 then
-        viewer = "zathura"
-      else
-        viewer = "general"
-      end
-
-      vim.g.vimtex_view_method = viewer
+      vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_grammar_textidote = {
         ["jar"] = "~/textidote.jar",
       }
       vim.g.vimtex_mappings_disable = {
         ["n"] = { "K" },
+      }
+      vim.g.vimtex_compiler_latexmk = {
+        ["executable"] = {"toolbox", "run", "-c", "tex-box", "latexmk"},
       }
     end,
   },
