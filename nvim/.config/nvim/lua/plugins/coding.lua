@@ -57,5 +57,4 @@ return {
   },
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
   { "saghen/blink.compat", version = "*", lazy = true },
-  { "numToStr/Comment.nvim", event = "VeryLazy", opts = {} },
 }

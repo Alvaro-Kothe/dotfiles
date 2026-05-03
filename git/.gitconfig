@@ -19,7 +19,6 @@
 	keepBackup = false
 [rebase]
 	autosquash = true
-	updateRefs = true
 [rerere]
 	enabled = true
 [core]
