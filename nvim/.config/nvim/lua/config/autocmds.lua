@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "checkhealth",
     "dbout",
     "gitsigns-blame",
+    "fugitive",
     "grug-far",
     "help",
     "lspinfo",

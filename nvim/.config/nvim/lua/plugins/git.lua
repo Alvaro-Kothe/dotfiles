@@ -52,29 +52,11 @@ return {
     },
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-    },
+    "tpope/vim-fugitive",
     keys = {
-      { "<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status" },
+      { "<leader>gs", "<cmd>Git<cr>", desc = "Git Status" },
     },
-    cmd = { "Neogit" },
-    ---@module "neogit"
-    ---@type NeogitConfig
-    opts = {
-      fetch_after_checkout = true,
-      graph_style = "unicode",
-      integrations = {
-        diffview = false,
-      },
-      builders = {
-        NeogitCommitPopup = function(builder)
-          builder:option("c", "reedit-message", "", "Reedit previous commit message", { key_prefix = "-" })
-        end,
-      },
-    },
+    lazy = false,
   },
   {
     "sindrets/diffview.nvim",
