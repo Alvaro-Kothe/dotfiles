@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("yankHighlight", { clear = true }),
-  callback = function() vim.hl.on_yank() end,
+  callback = function() vim.hl.hl_op({}) end,
 })
 
 -- close some filetypes with <q>
