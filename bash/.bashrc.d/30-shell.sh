@@ -1,4 +1,4 @@
-if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+if [[ ! -f /run/.toolboxenv && -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
   source /usr/share/git-core/contrib/completion/git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=1
   export PROMPT_DIRTRIM=3
