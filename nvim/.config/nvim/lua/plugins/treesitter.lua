@@ -25,7 +25,7 @@ return {
       nvim_ts.install(opts.ensure_installed)
       vim.api.nvim_create_autocmd("FileType", {
         pattern = opts.ensure_installed,
-        callback = function() vim.treesitter.start() end,
+        callback = function(ev) vim.treesitter.start(ev.buf) end,
       })
     end,
   },
