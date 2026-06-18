@@ -150,6 +150,10 @@ return {
     },
   },
   {
+    "chentoast/marks.nvim",
+    opts = {},
+  },
+  {
     "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
